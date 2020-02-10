@@ -3,13 +3,12 @@ import React, { Component } from 'react'
 export default class CurrentlyReading extends Component {
   render() {
     return (
-      <div>
-        <main role="main">
-		<header role="banner">
-			<h1>Currently Reading
-			</h1>
-			<button>Add Items</button>
-    </header>
+      <main role="main">
+        <header role="banner">
+          <h1>Currently Reading
+          </h1>
+          <button>Add Items</button>
+        </header>
 
         <section class="goals">
             <div>Current goal: 7 hrs/week</div>
@@ -48,8 +47,8 @@ export default class CurrentlyReading extends Component {
             
         </section>
         
-    </main>
-      </div>
+      </main>
+    
     )
   }
 }

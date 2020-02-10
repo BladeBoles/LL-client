@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom'
 import CurrentlyReading from '../CurrentlyReading/CurrentlyReading';
 import Footer from '../Footer/Footer';
 import Landing from '../Landing/Landing';
@@ -13,9 +13,26 @@ import NewEntry from '../NewEntry/NewEntry';
 class App extends Component {
   render() {
     return (
-    <main className='App'>
-      <Landing />
-    </main>
+    <>
+      <Navbar />
+      
+      <Switch>
+    
+        <Route path="currently-reading" component={CurrentlyReading} />
+
+        <Route path="my-library">
+          <MyLibrary />
+        </Route>
+
+        <Route path="new-entry">
+          <NewEntry />
+        </Route>
+
+        <Route exact path="/">
+          <Landing />
+        </Route>  
+      </Switch>
+    </>
   );
   }
 }
