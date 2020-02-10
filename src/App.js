@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { Route } from 'react-router-dom';
+import Landing from './Landing';
 
-function App() {
-  return (
+
+class App extends Component {
+  render() {
+    return (
     <main className='App'>
-      <h1>Lexical Library</h1>
+      <Landing />
     </main>
   );
+  }
 }
 
 export default App;
