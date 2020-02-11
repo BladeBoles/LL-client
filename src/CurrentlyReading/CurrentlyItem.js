@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 
 export default class CurrentlyItem extends Component {
   constructor(props) {
+    super(props);
+    
     const { author, current_progress, date_finished, date_started, finished, id, media_name, media_type, media_url, notes } = this.props.props;
   }
-  
-  
-  
   
   render() {
     return (
