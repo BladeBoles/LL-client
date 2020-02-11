@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-
-let renderTest = '';
 export default class CurrentlyReading extends Component {
 
   constructor(props) {
@@ -11,7 +9,7 @@ export default class CurrentlyReading extends Component {
   
   }
   
-  componentWillMount() {
+  componentDidMount() {
     fetch(`http://localhost:8000/api/currently-reading`, {
       method: 'GET'
     })
