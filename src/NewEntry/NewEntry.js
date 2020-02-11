@@ -74,17 +74,13 @@ export default class NewEntry extends Component {
             <textarea name="notes" rows="5" cols="40" value={this.state.notes} onChange={this.handleChange}></textarea>
           </div>
           
-          
           <div className="form-section">
-            <p className="media-date-header">Date media started</p>
-            <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" />
-            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required="" />
-            <input type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2017" required="" />
+            <label htmlFor="media-dates">Date started: </label>
+            <input type="date" id="start" name="date_started" value={this.state.date_started} onChange={this.handleChange} required />
 
-            <p className="media-date-header">Date media finished (ignore if new entry)</p>
-            <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" /> .
-            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required=""/>
-            <input type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2017" required="" />
+            <label htmlFor="media-dates">Date finished (optional): </label>
+            <input type="date" id="finish" name="date_finished" value={this.state.date_finished} onChange={this.handleChange} />
+
           </div>
 
           <button type="submit">Submit</button>
