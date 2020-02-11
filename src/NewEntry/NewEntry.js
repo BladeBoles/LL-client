@@ -1,6 +1,33 @@
 import React, { Component } from 'react'
 
 export default class NewEntry extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+    media_name: '',
+    author: '',
+    media_url: '',
+    current_progress: 0,
+    notes: '',
+    finished: false,
+    media_type: 'book',
+    date_started: '',
+    date_finished: ''
+  };
+
+  this.handleChange = this.handleChange.bind(this);
+}
+  
+  handleChange (event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
     return (
       <main role="main">
@@ -10,8 +37,8 @@ export default class NewEntry extends Component {
       <section>
         <form id="record-media">
           <div className="form-section">
-            <label htmlFor="media-title">Title (required)</label>
-            <input type="text" name="media-title" required />
+            <label htmlFor="media_title">Title (required)</label>
+            <input type="text" name="media_title"  value={this.state.media_title} onChange={this.handleChange} required  />
           </div>
           <div className="form-section">
             <label htmlFor="current-or-finished">Status </label>

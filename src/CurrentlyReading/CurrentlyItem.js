@@ -18,12 +18,13 @@ export default class CurrentlyItem extends Component {
           </ul>
         </div>
       <p>Time: 00:03:54</p>
-      <div className="button-div">
+      <div className="timer-button-div">
         <button>Pause Timer</button>
     
         <button>Reset timer</button>
         <button>Mark as finished</button>
       </div>
+        <button>Delete Item</button>
       </div>
     );
   }

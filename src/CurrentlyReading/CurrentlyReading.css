@@ -37,7 +37,7 @@ a {
   flex-direction: column;
 }
 
-.button-div {
+.timer-button-div {
   display: flex;
   flex-direction: column;
   align-items: center;
