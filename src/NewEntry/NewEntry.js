@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 
 export default class NewEntry extends Component {
   constructor(props) {
@@ -28,6 +30,27 @@ export default class NewEntry extends Component {
     });
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const dataToPost = this.state;
+
+    fetch('http://localhost:8000/api/currently-reading', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataToPost),
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.props.history.push('/currently-reading');
+    })
+    .catch((error) => {
+      console.error('Error:', error)
+    })
+  }
+
   render() {
     return (
       <main role="main">
@@ -35,16 +58,16 @@ export default class NewEntry extends Component {
         <h1>New Media Entry</h1>
       </header>
       <section>
-        <form id="record-media">
+        <form id="record-media" onSubmit={this.handleSubmit}>
           <div className="form-section">
             <label htmlFor="media_title">Title (required)</label>
-            <input type="text" name="media_title" value={this.state.media_title} onChange={this.handleChange} required  />
+            <input type="text" name="media_name" value={this.state.media_name} onChange={this.handleChange} required  />
           </div>
           <div className="form-section">
             <label htmlFor="current-or-finished">Status </label>
             <select name="finished" value={this.state.finished} onChange={this.handleChange}>
-              <option value="false">I'm currently reading it</option>
-              <option value="true">I'm finished reading it</option>
+              <option value="false">Currently reading</option>
+              <option value="true">Finished reading</option>
             </select>
           </div>
           <div className="form-section">

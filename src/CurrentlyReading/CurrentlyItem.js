@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
+import './CurrentlyReading.css'
 
 export default class CurrentlyItem extends Component {
   
+  deleteCurrentlyItem = (event) => {
+    console.log('Delete Button pressed!')
+  }
+
   render() {
     const { author, current_progress, date_started, media_name, media_type, media_url, notes, id } = this.props.props;
     return (
@@ -24,7 +29,7 @@ export default class CurrentlyItem extends Component {
         <button>Reset timer</button>
         <button>Mark as finished</button>
       </div>
-        <button>Delete Item</button>
+        <button onClick={this.deleteCurrentlyItem}>Delete Item</button>
       </div>
     );
   }

@@ -25,6 +25,7 @@ a {
 }
 
 
+
 .goals {
   background-color: #ddd;
   margin-bottom: 20px;
@@ -35,6 +36,7 @@ a {
   min-height: 200px;
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
 }
 
 .timer-button-div {

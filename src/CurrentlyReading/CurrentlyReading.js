@@ -55,28 +55,6 @@ export default class CurrentlyReading extends Component {
               })
             }
         </section>
-
-        <section className="project3">
-            "How Much Sleep Do You Need? - Hardcoded Example" (Article) - 15 min total
-            <div className="expanded">
-              <div className="inner">
-                <ul>
-                  <li key='fred'>Author: Willie Nelson</li>
-                  <li key='daphne'>URL: www.groovytunes.com/sleep</li>
-                  <li key='velma'>Notes: 6 hours isn't enough</li>
-                </ul>
-              </div>
-            <p>Time: 00:03:54</p>
-            <div className="button-div">
-              <button>Pause Timer</button>
-          
-              <button>Reset timer</button>
-              <button>Mark as finished</button>
-            </div>
-            </div>
-            
-        </section>
-        
       </main>
     
     )
