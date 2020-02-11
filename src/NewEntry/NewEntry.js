@@ -10,18 +10,18 @@ export default class NewEntry extends Component {
       <section>
         <form id="record-media">
           <div className="form-section">
-            <label for="media-title">Title (required)</label>
+            <label htmlFor="media-title">Title (required)</label>
             <input type="text" name="media-title" required />
           </div>
           <div className="form-section">
-            <label for="current-or-finished">Status </label>
+            <label htmlFor="current-or-finished">Status </label>
             <select>
               <option value="finished">I'm finished reading it</option>
               <option value="current">I'm currently reading or want to read it</option>
             </select>
           </div>
           <div className="form-section">
-            <label for="media-type">Choose Media Type: </label>
+            <label htmlFor="media-type">Choose Media Type: </label>
             (App will have more media types and a way to enter a custom "other")
             <select>
               <option value="book">Book</option>
@@ -31,20 +31,20 @@ export default class NewEntry extends Component {
             </select>
           </div>
           <div className="form-section">
-            <label for="media-author">Author (optional)</label>
+            <label htmlFor="media-author">Author (optional)</label>
             <input type="text" name="media-author" required />
           </div>
           <div className="form-section">
-            <label for="media-url">Relevant Link (optional)</label>
+            <label htmlFor="media-url">Relevant Link (optional)</label>
             <input type="url" name="media-url" required />
           </div>
 
           <div className="form-section">
-            <label for="media-notes">Notes (optional)</label>
+            <label htmlFor="media-notes">Notes (optional)</label>
             <textarea name="media-notes" rows="15"   required></textarea>
           </div>
           <div className="form-section">
-            <label for="reading-progress">Amount of time read so far (in minutes, enter 0 if just starting)</label>
+            <label htmlFor="reading-progress">Amount of time read so far (in minutes, enter 0 if just starting)</label>
             <input type="text" name="reading-progress" required />
           </div>
           

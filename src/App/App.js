@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import CurrentlyReading from '../CurrentlyReading/CurrentlyReading';
-import Footer from '../Footer/Footer';
+///Footer/Footer';
 import Landing from '../Landing/Landing';
 import MyLibrary from '../MyLibrary/MyLibrary';
 import Navbar from '../Navbar/Navbar';

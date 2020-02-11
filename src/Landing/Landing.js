@@ -39,7 +39,7 @@ export default class Landing extends Component {
               Create Password:<br />
               <input type="password" name="lastname" />
               <br /><br />
-              <input type="submit" value="Submit" />
+              <Link to="./"><input type="submit" value="Submit" /></Link>
             </form> 
         </section>
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import CurrentlyItem from './CurrentlyItem'
 export default class CurrentlyReading extends Component {
 
@@ -35,7 +35,7 @@ export default class CurrentlyReading extends Component {
         <header role="banner">
           <h1>Currently Reading</h1>
 
-          <button>Add Items</button>
+          <Link to='./new-entry'><button>Add Items</button></Link>
 
         </header>
 
