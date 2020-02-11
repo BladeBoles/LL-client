@@ -11,6 +11,8 @@ import NewEntry from '../NewEntry/NewEntry';
 
 
 class App extends Component {
+
+  
   render() {
     return (
     <>
@@ -18,19 +20,14 @@ class App extends Component {
       
       <Switch>
     
-        <Route path="currently-reading" component={CurrentlyReading} />
+        <Route path="/currently-reading" component={CurrentlyReading} />
 
-        <Route path="my-library">
-          <MyLibrary />
-        </Route>
+        <Route path="/my-library" component={MyLibrary} />
 
-        <Route path="new-entry">
-          <NewEntry />
-        </Route>
+        <Route path="/new-entry" component={NewEntry} />
 
-        <Route exact path="/">
-          <Landing />
-        </Route>  
+        <Route exact path="/" component={Landing} />
+  
       </Switch>
     </>
   );

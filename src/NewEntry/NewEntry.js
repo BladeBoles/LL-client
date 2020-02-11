@@ -9,18 +9,18 @@ export default class NewEntry extends Component {
       </header>
       <section>
         <form id="record-media">
-          <div class="form-section">
+          <div className="form-section">
             <label for="media-title">Title (required)</label>
             <input type="text" name="media-title" required />
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="current-or-finished">Status </label>
             <select>
               <option value="finished">I'm finished reading it</option>
               <option value="current">I'm currently reading or want to read it</option>
             </select>
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="media-type">Choose Media Type: </label>
             (App will have more media types and a way to enter a custom "other")
             <select>
@@ -30,34 +30,34 @@ export default class NewEntry extends Component {
               <option value="other">Other</option>
             </select>
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="media-author">Author (optional)</label>
             <input type="text" name="media-author" required />
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="media-url">Relevant Link (optional)</label>
             <input type="url" name="media-url" required />
           </div>
 
-          <div class="form-section">
+          <div className="form-section">
             <label for="media-notes">Notes (optional)</label>
             <textarea name="media-notes" rows="15"   required></textarea>
           </div>
-          <div class="form-section">
+          <div className="form-section">
             <label for="reading-progress">Amount of time read so far (in minutes, enter 0 if just starting)</label>
             <input type="text" name="reading-progress" required />
           </div>
           
-          <div class="form-section">
-            <p class="media-date-header">Date media started</p>
+          <div className="form-section">
+            <p className="media-date-header">Date media started</p>
             <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" />
-            <input type="number" name="date-day" class="date-day"  placeholder="01" min="1" max="31" required="" />
-            <input type="number" name="date-year" class="date-year" placeholder="2017" min="2016" max="2017" required="" />
+            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required="" />
+            <input type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2017" required="" />
 
-            <p class="media-date-header">Date media finished (ignore if new entry)</p>
+            <p className="media-date-header">Date media finished (ignore if new entry)</p>
             <input type="number" name="date-month" placeholder="01" min="1" max="12" required="" /> .
-            <input type="number" name="date-day" class="date-day"  placeholder="01" min="1" max="31" required=""/>
-            <input type="number" name="date-year" class="date-year" placeholder="2017" min="2016" max="2017" required="" />
+            <input type="number" name="date-day" className="date-day"  placeholder="01" min="1" max="31" required=""/>
+            <input type="number" name="date-year" className="date-year" placeholder="2017" min="2016" max="2017" required="" />
           </div>
 
           <button type="submit">Submit</button>

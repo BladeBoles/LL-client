@@ -1,16 +1,49 @@
 import React, { Component } from 'react'
 
+let renderTest = '';
 export default class CurrentlyReading extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    }
+  
+  }
+  
+  componentWillMount() {
+    fetch(`http://localhost:8000/api/currently-reading`, {
+      method: 'GET'
+    })
+      .then (res => res.json())
+      .then(response => {
+        this.setState({items: response})
+        console.log('Current state:', this.state.items)
+      })  
+
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+
+
   render() {
+    
     return (
       <main role="main">
         <header role="banner">
-          <h1>Currently Reading
-          </h1>
+          <h1>Currently Reading</h1>
+
           <button>Add Items</button>
+
+          <div>
+            {this.state.items.map(item => 
+              <div>{item.media_name}</div>)}
+          </div>
         </header>
 
-        <section class="goals">
+        <section className="goals">
             <div>Current goal: 7 hrs/week</div>
             <div>Progress: 0.4 hours</div>
             <div>Average to achieve current goal: 1.1 hrs/day</div>
@@ -26,10 +59,10 @@ export default class CurrentlyReading extends Component {
             Little Women (Audiobook) - 3 hrs total
         </section>
 
-        <section class="project3">
+        <section className="project3">
             "How Much Sleep Do You Need?" (Article) - 15 min total
-            <div class="expanded">
-              <div class="inner">
+            <div className="expanded">
+              <div className="inner">
                 <ul>
                   <li>Author: Willie Nelson</li>
                   <li>URL: www.groovytunes.com/sleep</li>
@@ -37,7 +70,7 @@ export default class CurrentlyReading extends Component {
                 </ul>
               </div>
             <p>Time: 00:03:54</p>
-            <div class="button-div">
+            <div className="button-div">
               <button>Pause Timer</button>
           
               <button>Reset timer</button>

@@ -7,19 +7,19 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav role="navigation">
-		<div class="logo-hamberder">
-			<Link to="/" class="logo">Logo Here</Link>
+		<div className="logo-hamberder">
+			<Link to="/" className="logo">Logo Here</Link>
 
 			<a href="#">
-				<i class="fa fa-bars"></i>
+				<i className="fa fa-bars"></i>
       </a>
     </div>
-    <div class="hamberder-dropdown">
+    <div className="hamberder-dropdown">
       <Link to="/currently-reading">Currently Reading</Link>
       <Link to="/my-library">My Library</Link>
       <Link to="/new-entry">New Entry</Link>
     </div>
-    <div class="user-message">
+    <div className="user-message">
         Welcome Back, User!
     </div>
   

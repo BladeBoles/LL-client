@@ -9,7 +9,7 @@ export default class MyLibrary extends Component {
 			<h1>My Library
 			</h1>
 			<button>Add Items</button>
-      <div class="form-section">
+      <div className="form-section">
             <label for="current-or-finished">Showing Results For:</label>
             <select>
               <option value="forever">All Time</option>
@@ -28,10 +28,10 @@ export default class MyLibrary extends Component {
             Atlas Shrugged (Book) - 9,231 hrs
         </section>
         <h4>March 3, 2015</h4>
-        <section class="project3">
+        <section className="project3">
             "Colour From Outer Space" (Short Story) - 30 min
-            <div class="expanded">
-              <div class="inner">
+            <div className="expanded">
+              <div className="inner">
                 <ul>
                   <li>Author: H.P. Lovecraft</li>
                   <li>Date Started: 03-03-2015</li>
