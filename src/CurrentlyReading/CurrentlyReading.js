@@ -51,7 +51,7 @@ export default class CurrentlyReading extends Component {
             {this.state.items.map((item, i) => {
               const itemInfo = this.state.items[i];
               
-              return <Route render={(props) => <CurrentlyItem props={itemInfo} key={i} /> } />;
+              return <Route key={i} render={(props) => <CurrentlyItem props={itemInfo} key={i} /> } />;
               })
             }
         </section>
@@ -61,9 +61,9 @@ export default class CurrentlyReading extends Component {
             <div className="expanded">
               <div className="inner">
                 <ul>
-                  <li>Author: Willie Nelson</li>
-                  <li>URL: www.groovytunes.com/sleep</li>
-                  <li>Notes: 6 hours isn't enough</li>
+                  <li key='fred'>Author: Willie Nelson</li>
+                  <li key='daphne'>URL: www.groovytunes.com/sleep</li>
+                  <li key='velma'>Notes: 6 hours isn't enough</li>
                 </ul>
               </div>
             <p>Time: 00:03:54</p>
