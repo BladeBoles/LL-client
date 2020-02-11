@@ -38,19 +38,18 @@ export default class NewEntry extends Component {
         <form id="record-media">
           <div className="form-section">
             <label htmlFor="media_title">Title (required)</label>
-            <input type="text" name="media_title"  value={this.state.media_title} onChange={this.handleChange} required  />
+            <input type="text" name="media_title" value={this.state.media_title} onChange={this.handleChange} required  />
           </div>
           <div className="form-section">
             <label htmlFor="current-or-finished">Status </label>
-            <select>
-              <option value="finished">I'm finished reading it</option>
-              <option value="current">I'm currently reading or want to read it</option>
+            <select name="finished" value={this.state.finished} onChange={this.handleChange}>
+              <option value="false">I'm currently reading it</option>
+              <option value="true">I'm finished reading it</option>
             </select>
           </div>
           <div className="form-section">
             <label htmlFor="media-type">Choose Media Type: </label>
-            (App will have more media types and a way to enter a custom "other")
-            <select>
+            <select name="media_type" value={this.state.media_type} onChange={this.handleChange}>
               <option value="book">Book</option>
               <option value="article">Article</option>
               <option value="audiobook">Audiobook</option>
@@ -58,22 +57,23 @@ export default class NewEntry extends Component {
             </select>
           </div>
           <div className="form-section">
+            <label htmlFor="reading-progress">Amount of time read so far: </label>
+            <input type="text" name="current_progress" value={this.state.current_progress} onChange={this.handleChange}  /> minutes
+          </div>
+          <div className="form-section">
             <label htmlFor="media-author">Author (optional)</label>
-            <input type="text" name="media-author" required />
+            <input type="text" name="author" value={this.state.author} onChange={this.handleChange} />
           </div>
           <div className="form-section">
             <label htmlFor="media-url">Relevant Link (optional)</label>
-            <input type="url" name="media-url" required />
+            <input type="url" name="media_url" value={this.state.media_url} onChange={this.handleChange} />
           </div>
 
           <div className="form-section">
             <label htmlFor="media-notes">Notes (optional)</label>
-            <textarea name="media-notes" rows="15"   required></textarea>
+            <textarea name="notes" rows="5" cols="40" value={this.state.notes} onChange={this.handleChange}></textarea>
           </div>
-          <div className="form-section">
-            <label htmlFor="reading-progress">Amount of time read so far (in minutes, enter 0 if just starting)</label>
-            <input type="text" name="reading-progress" required />
-          </div>
+          
           
           <div className="form-section">
             <p className="media-date-header">Date media started</p>
