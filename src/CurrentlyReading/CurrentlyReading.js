@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import CurrentlyItem from './CurrentlyItem'
 export default class CurrentlyReading extends Component {
 
   constructor(props) {
@@ -35,10 +37,6 @@ export default class CurrentlyReading extends Component {
 
           <button>Add Items</button>
 
-          <div>
-            {this.state.items.map(item => 
-              <div>{item.media_name}</div>)}
-          </div>
         </header>
 
         <section className="goals">
@@ -49,16 +47,17 @@ export default class CurrentlyReading extends Component {
             <button>Edit Goals</button>
         </section>
 
-        <section>
-            Moby Dick (Book) - 6 hrs total
-        </section>
-
-        <section>
-            Little Women (Audiobook) - 3 hrs total
+        <section className="cr-items">
+            {this.state.items.map((item, i) => {
+              const itemInfo = this.state.items[i];
+              
+              return <Route render={(props) => <CurrentlyItem props={itemInfo} key={i} /> } />;
+              })
+            }
         </section>
 
         <section className="project3">
-            "How Much Sleep Do You Need?" (Article) - 15 min total
+            "How Much Sleep Do You Need? - Hardcoded Example" (Article) - 15 min total
             <div className="expanded">
               <div className="inner">
                 <ul>
