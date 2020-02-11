@@ -4,14 +4,17 @@ export default class CurrentlyItem extends Component {
   constructor(props) {
     super(props);
     
-    const { author, current_progress, date_finished, date_started, finished, id, media_name, media_type, media_url, notes } = this.props.props;
   }
+
+
   
   render() {
+    const { author, current_progress, date_finished, date_started, finished, id, media_name, media_type, media_url, notes } = this.props.props;
     return (
+      
       <div className="expanded">
         <div className="inner">
-          <h4>Title: {}(</h4>
+          <h4>Title: {media_name}({media_type})</h4>
 
           <ul>
             <li>Author: Willie Nelson</li>
