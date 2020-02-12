@@ -37,16 +37,12 @@ export default class CurrentlyReading extends Component {
     this.setState({
       dailyAvg
     }, () => console.log("Daily avg:", dailyAvg))
-  
-    
   }
 
   componentDidMount() {
     this.updateView();
     this.calculateAvg();
   }
-
-  
 
   updateGoals (event) {
     event.preventDefault();
@@ -61,11 +57,14 @@ export default class CurrentlyReading extends Component {
       this.setState({
         dailyAvg
       })})
-
-
-    
-
   }
+
+  editGoalsForm = () => {
+    this.setState({
+      editGoals: !this.state.editGoals
+    })
+  }
+
   
   render() {
     
@@ -83,12 +82,13 @@ export default class CurrentlyReading extends Component {
             <div>Progress: {this.state.progress} hours</div>
             <div>Average to achieve current goal: {this.state.dailyAvg} hrs/day</div>
             
-            <button>Edit Goals</button>
+            <button onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
 
-            <form class="goal-form">
+            {this.state.editGoals ? (
+            <form className="goal-form">
               <label htmlFor="set-goal">Weekly Goal (hours): </label>
-              <input type="number" name="weeklyHours" value={this.state.weeklyHours} onChange={this.updateGoals}/>
-            </form>
+              <input type="number" name="weeklyHours" value={this.state.weeklyHours} onChange={this.updateGoals} />
+            </form>) : ''}
 
         </section>
 
