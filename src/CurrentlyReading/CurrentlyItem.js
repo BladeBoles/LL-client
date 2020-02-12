@@ -10,7 +10,7 @@ export default class CurrentlyItem extends Component {
       method: 'DELETE',
     })
     .then(res => this.props.updateView())
-    .catch(error => console.error('Error: ', error))
+    .catch(error => console.error('error: ', error))
   }
 
   render() {
