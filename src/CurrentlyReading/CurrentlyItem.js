@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
-import './CurrentlyReading.css'
+
 
 export default class CurrentlyItem extends Component {
   
   deleteCurrentlyItem = (event) => {
-    console.log('Delete Button pressed!')
+    const idToDelete = event.target.value;
+    console.log(idToDelete);
+    fetch(`http://localhost:8000/api/currently-reading/${idToDelete}`, {
+      method: 'DELETE',
+    })
+    .then(res => this.props.updateView())
+    .catch(error => console.error('Error: ', error))
   }
 
   render() {
@@ -29,7 +35,7 @@ export default class CurrentlyItem extends Component {
         <button>Reset timer</button>
         <button>Mark as finished</button>
       </div>
-        <button onClick={this.deleteCurrentlyItem}>Delete Item</button>
+        <button value={id} onClick={this.deleteCurrentlyItem}>Delete Item</button>
       </div>
     );
   }

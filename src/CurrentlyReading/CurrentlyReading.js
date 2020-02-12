@@ -11,7 +11,7 @@ export default class CurrentlyReading extends Component {
   
   }
   
-  componentDidMount() {
+  updateView = () => {
     fetch(`http://localhost:8000/api/currently-reading`, {
       method: 'GET'
     })
@@ -24,6 +24,10 @@ export default class CurrentlyReading extends Component {
       .catch(error => {
         console.error(error)
       })
+  }
+
+  componentDidMount() {
+    this.updateView();
   }
 
 
@@ -51,7 +55,7 @@ export default class CurrentlyReading extends Component {
             {this.state.items.map((item, i) => {
               const itemInfo = this.state.items[i];
               
-              return <Route key={i} render={(props) => <CurrentlyItem props={itemInfo} key={i} /> } />;
+              return <Route key={i} render={(props) => <CurrentlyItem updateView={this.updateView} props={itemInfo} key={i} /> } />;
               })
             }
         </section>
