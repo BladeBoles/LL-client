@@ -1,10 +1,38 @@
 import React, { Component } from 'react'
+import { Route, Link } from 'react-router-dom'
+import LibraryItem from './LibraryItem'
 
 export default class MyLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    }
+  }
+
+  updateView = () => {
+    fetch(`http://localhost:8000/api/currently-reading`, {
+      method: 'GET'
+    })
+      .then (res => res.json())
+      .then(response => {
+        this.setState({items: response})
+        console.log('Current state:', this.state.items)
+
+      })  
+
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  componentDidMount() {
+    this.updateView();
+  }
+
   render() {
     return (
       <div>
-        <main role="main">
 		<header role="banner">
 			<h1>My Library
 			</h1>
@@ -19,30 +47,15 @@ export default class MyLibrary extends Component {
             </select>
           </div>
     </header>
-        <h4>Jan 31, 2020</h4>
-        <section>
-            Parry Hotter and the Storcered's Sone (Book) - 25 hrs
+    <main role="main">
+        <section className="ml-items">
+            {this.state.items.map((item, i) => {
+              const itemInfo = this.state.items[i];
+              
+              return item.finished !== false ? (<Route key={i} render={(props) => <LibraryItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : '';
+              })
+            }
         </section>
-
-        <section>
-            Atlas Shrugged (Book) - 9,231 hrs
-        </section>
-        <h4>March 3, 2015</h4>
-        <section className="project3">
-            "Colour From Outer Space" (Short Story) - 30 min
-            <div className="expanded">
-              <div className="inner">
-                <ul>
-                  <li>Author: H.P. Lovecraft</li>
-                  <li>Date Started: 03-03-2015</li>
-                  <li>Date Finished: 03-03-2015</li>
-                  <li>Notes: Bad person, but good author</li>
-                </ul>
-                <button>Delete</button>
-              </div>
-            </div>
-        </section>
-       
     </main>
     </div>
     )

@@ -30,9 +30,7 @@ export default class CurrentlyReading extends Component {
   componentDidMount() {
     this.updateView();
   }
-
-
-
+  
   render() {
     
     return (
