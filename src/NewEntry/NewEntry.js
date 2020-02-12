@@ -12,7 +12,7 @@ export default class NewEntry extends Component {
     media_url: '',
     current_progress: 0,
     notes: '',
-    finished: false,
+    finished: true,
     media_type: 'book',
     date_started: '',
     date_finished: ''
@@ -23,7 +23,7 @@ export default class NewEntry extends Component {
   
   handleChange (event) {
     const target = event.target;
-    const value = target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     this.setState({
       [name]: value
@@ -32,14 +32,16 @@ export default class NewEntry extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const dataToPost = this.state;
+  
+    let dataToPost = JSON.stringify(this.state);
+    console.log("hey there: ", dataToPost);
 
     fetch('http://localhost:8000/api/currently-reading', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dataToPost),
+      body: dataToPost,
     })
     .then(res => res.json())
     .then(data => {
@@ -64,11 +66,12 @@ export default class NewEntry extends Component {
             <input type="text" name="media_name" value={this.state.media_name} onChange={this.handleChange} required  />
           </div>
           <div className="form-section">
-            <label htmlFor="current-or-finished">Status </label>
-            <select name="finished" value={this.state.finished} onChange={this.handleChange}>
-              <option value="false">Currently reading</option>
-              <option value="true">Finished reading</option>
-            </select>
+            <label htmlFor="current-or-finished">I'm finished reading this </label>
+            <input
+            name="finished"
+            type="checkbox"
+            checked={this.state.finished}
+            onChange={this.handleChange} />
           </div>
           <div className="form-section">
             <label htmlFor="media-type">Choose Media Type: </label>
