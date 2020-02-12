@@ -10,7 +10,8 @@ export default class Landing extends Component {
       firstname: '',
       lastname: '',
       email: '',
-      password: ''
+      user_login: '',
+      user_password: ''
     }
   }
 
@@ -21,6 +22,29 @@ export default class Landing extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  
+    let dataToPost = JSON.stringify(this.state);
+    console.log("hey there: ", dataToPost);
+
+    fetch('http://localhost:8000/api/new-user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: dataToPost,
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.props.history.push('/currently-reading');
+    })
+    .catch((error) => {
+      console.error('Error:', error)
+    })
   }
 
   render() {
@@ -46,7 +70,7 @@ export default class Landing extends Component {
 
         <section>
             <h3>Sign up now and start smashing those goals!</h3>
-            <form>
+            <form onSubmit={this.handleSubmit} >
               <label htmlFor="firstname">First Name: </label>
               <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange} />
               
@@ -56,10 +80,13 @@ export default class Landing extends Component {
               <label htmlFor="email">Email: </label>
               <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
 
+              <label htmlFor="username">Desired Username: </label>
+              <input type="text" name="user_login" value={this.state.username} onChange={this.handleChange} />
+
               <label htmlFor="password">Create Password: </label>
-              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+              <input type="password" name="user_password" value={this.state.password} onChange={this.handleChange} />
               
-              <Link to="./"><input type="submit" value="Submit" /></Link>
+              <button>Submit</button>
             </form> 
         </section>
 
