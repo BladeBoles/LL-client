@@ -6,9 +6,14 @@ export default class CurrentlyReading extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      editGoals: true, 
+      weeklyHours: 7,
+      progress: 0.4,
+      daysLeft: 4,
+      dailyAvg: 0
     }
-  
+    this.updateGoals = this.updateGoals.bind(this);
   }
   
   updateView = () => {
@@ -27,8 +32,39 @@ export default class CurrentlyReading extends Component {
       })
   }
 
+  calculateAvg = () => {
+    const dailyAvg = ((this.state.weeklyHours - this.state.progress)/this.state.daysLeft);
+    this.setState({
+      dailyAvg
+    }, () => console.log("Daily avg:", dailyAvg))
+  
+    
+  }
+
   componentDidMount() {
     this.updateView();
+    this.calculateAvg();
+  }
+
+  
+
+  updateGoals (event) {
+    event.preventDefault();
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+
+    this.setState({
+      [name]: parseInt(value),
+    }, () => {
+      const dailyAvg = ((this.state.weeklyHours - this.state.progress)/this.state.daysLeft);
+      this.setState({
+        dailyAvg
+      })})
+
+
+    
+
   }
   
   render() {
@@ -43,11 +79,17 @@ export default class CurrentlyReading extends Component {
         </header>
 
         <section className="goals">
-            <div>Current goal: 7 hrs/week</div>
-            <div>Progress: 0.4 hours</div>
-            <div>Average to achieve current goal: 1.1 hrs/day</div>
+            <div>Current goal: {this.state.weeklyHours} hrs/week</div>
+            <div>Progress: {this.state.progress} hours</div>
+            <div>Average to achieve current goal: {this.state.dailyAvg} hrs/day</div>
             
             <button>Edit Goals</button>
+
+            <form class="goal-form">
+              <label htmlFor="set-goal">Weekly Goal (hours): </label>
+              <input type="number" name="weeklyHours" value={this.state.weeklyHours} onChange={this.updateGoals}/>
+            </form>
+
         </section>
 
         <section className="cr-items">
