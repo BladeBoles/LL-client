@@ -19,6 +19,7 @@ export default class CurrentlyReading extends Component {
       .then(response => {
         this.setState({items: response})
         console.log('Current state:', this.state.items)
+
       })  
 
       .catch(error => {
@@ -55,7 +56,7 @@ export default class CurrentlyReading extends Component {
             {this.state.items.map((item, i) => {
               const itemInfo = this.state.items[i];
               
-              return <Route key={i} render={(props) => <CurrentlyItem updateView={this.updateView} props={itemInfo} key={i} /> } />;
+              return item.finished === false ? (<Route key={i} render={(props) => <CurrentlyItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : '';
               })
             }
         </section>

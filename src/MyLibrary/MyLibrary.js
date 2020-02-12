@@ -10,7 +10,7 @@ export default class MyLibrary extends Component {
 			</h1>
 			<button>Add Items</button>
       <div className="form-section">
-            <label for="current-or-finished">Showing Results For:</label>
+            <label htmlFor="current-or-finished">Showing Results For:</label>
             <select>
               <option value="forever">All Time</option>
               <option value="week">This Week</option>
