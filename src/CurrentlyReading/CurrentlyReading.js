@@ -10,12 +10,12 @@ export default class CurrentlyReading extends Component {
     super(props);
     this.state = {
       items: [],
-      editGoals: true, 
-      weeklyHours: 7,
+      editGoals: false, 
+      weekly_hours: 7,
       progress: 0.4,
-      daysLeft: 4,
+      days_left: 4,
       dailyAvg: 0,
-      library_owner: 1
+      library_owner: 0
     }
     this.updateGoals = this.updateGoals.bind(this);
   }
@@ -37,10 +37,10 @@ export default class CurrentlyReading extends Component {
   }
 
   calculateAvg = () => {
-    const dailyAvg = ((this.state.weeklyHours - this.state.progress)/this.state.daysLeft);
+    const dailyAvg = ((this.state.weekly_hours - this.state.progress)/this.state.days_left);
     this.setState({
       dailyAvg
-    }, () => console.log("Daily avg:", dailyAvg))
+    })
   }
 
   componentDidMount() {
@@ -48,22 +48,37 @@ export default class CurrentlyReading extends Component {
     this.calculateAvg();
   }
 
+  updateProfile () {
+  const userToUpdate = this.context.user_login;
+  const profileUpdates = JSON.stringify({
+    weekly_hours: this.state.weekly_hours
+  })
+
+  fetch(`http://localhost:8000/api/login/${userToUpdate}`, {
+    method: 'PATCH', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: profileUpdates,
+  })
+    .then(res => this.context.fetchProfile(this.context.user_login))
+    .catch(error => console.error('Error: ', error))
+  }
+
   updateGoals (event) {
     event.preventDefault();
     const target = event.target;
     const name = target.name;
     const value = target.value;
-
     this.setState({
       [name]: parseInt(value),
-    }, 
-    this.calculateAvg)
+    })
   }
 
   editGoalsForm = () => {
     this.setState({
       editGoals: !this.state.editGoals
-    })
+    }, this.updateProfile)
   }
 
   
@@ -79,16 +94,17 @@ export default class CurrentlyReading extends Component {
         </header>
 
         <section className="goals">
-            <div>Current goal: {this.state.weeklyHours} hrs/week</div>
-            <div>Progress: {this.state.progress} hours</div>
-            <div>Average to achieve current goal: {this.state.dailyAvg} hrs/day</div>
+            <div>Current goal: {this.context.weekly_hours} hrs/week</div>
+            <div>Progress: {this.context.progress} hours</div>
+            <div>Days remaining: {this.context.days_left}</div>
+            <div>Average to achieve current goal: {(this.context.weekly_hours-this.context.progress)/this.context.days_left} hrs/day</div>
             
             <button onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
 
             {this.state.editGoals ? (
             <form className="goal-form">
               <label htmlFor="set-goal">Weekly Goal (hours): </label>
-              <input type="number" name="weeklyHours" value={this.state.weeklyHours} onChange={this.updateGoals} />
+              <input type="number" name="weekly_hours" value={this.state.weekly_hours} onChange={this.updateGoals} />
             </form>) : ''}
 
         </section>

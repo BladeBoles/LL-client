@@ -22,7 +22,10 @@ class App extends Component {
       .then((response) => {
         return this.setState({
           user_login: response.user_login,
-          user_id: response.id
+          user_id: response.id,
+          days_left: response.days_left,
+          progress: response.progress,
+          weekly_hours: response.weekly_hours
         }, () => console.log(this.state ))
       })
     }
@@ -30,6 +33,9 @@ class App extends Component {
     this.state = {
       user_login: '',
       user_id: 0,
+      weekly_hours: 0,
+      progress: 0,
+      days_left: 0,
       fetchProfile: this.fetchProfile,
     }
  };
@@ -53,7 +59,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
   
       </Switch>
-      </ UserContext.Provider>
+      </UserContext.Provider>
     </>
   );
   }
