@@ -1,8 +1,54 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './Landing.css'
+import UserContext from '../context/UserContext'
 
 export default class Landing extends Component {
+  static contextType = UserContext;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      user_login: '',
+      user_password: ''
+    }
+  }
+
+  handleChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  
+    let dataToPost = JSON.stringify(this.state);
+    console.log("hey there: ", dataToPost);
+
+    fetch('http://localhost:8000/api/new-user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: dataToPost,
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      this.props.history.push('/currently-reading');
+    })
+    .catch((error) => {
+      console.error('Error:', error)
+    })
+  }
+
   render() {
     return (
       <main role="main">
@@ -10,6 +56,7 @@ export default class Landing extends Component {
             <h1>Lexical Library</h1>
             
             <h3>Read all the things!</h3>
+            <h3>User logged in: {this.context.user_login}</h3>
         </header>
 
         <section>
@@ -26,20 +73,23 @@ export default class Landing extends Component {
 
         <section>
             <h3>Sign up now and start smashing those goals!</h3>
-            <form action="/action_page.php">
-              First name:<br />
-              <input type="text" name="firstname" />
-              <br />
-              Last name:<br />
-              <input type="text" name="lastname" />
-              <br />
-              Email:<br />
-              <input type="email" name="firstname" />
-              <br />
-              Create Password:<br />
-              <input type="password" name="lastname" />
-              <br /><br />
-              <Link to="./"><input type="submit" value="Submit" /></Link>
+            <form onSubmit={this.handleSubmit} >
+              <label htmlFor="firstname">First Name: </label>
+              <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange} />
+              
+              <label htmlFor="lastname">Last name: </label>
+              <input type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange} />
+              
+              <label htmlFor="email">Email: </label>
+              <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
+
+              <label htmlFor="username">Desired Username: </label>
+              <input type="text" name="user_login" value={this.state.username} onChange={this.handleChange} />
+
+              <label htmlFor="password">Create Password: </label>
+              <input type="password" name="user_password" value={this.state.password} onChange={this.handleChange} />
+              
+              <button>Submit</button>
             </form> 
         </section>
 
