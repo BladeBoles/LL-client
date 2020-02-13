@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import LibraryItem from './LibraryItem'
 import UserContext from '../context/UserContext'
+import './MyLibrary.css'
 
 export default class MyLibrary extends Component {
   static contextType = UserContext;

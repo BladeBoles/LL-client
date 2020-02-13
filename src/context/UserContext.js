@@ -1,12 +1,13 @@
 import React from 'react'
 
 const UserContext = React.createContext({
-  firstname: 'John',
-  lastname: 'Doe',
-  email: 'john.doe@gmail.com',
-  user_login: 'JohnnyDough420',
-  user_password: 'password0', 
-  user_id: 1
+  firstname: '',
+  lastname: '',
+  email: '',
+  user_login: '',
+  user_password: '', 
+  user_id: 0,
+  handleChange: () => {}
 })
 
 export default UserContext

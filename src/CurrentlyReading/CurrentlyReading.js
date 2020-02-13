@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import CurrentlyItem from './CurrentlyItem'
 import UserContext from '../context/UserContext'
+import './CurrentlyReading.css'
 export default class CurrentlyReading extends Component {
   static contextType = UserContext;
 
