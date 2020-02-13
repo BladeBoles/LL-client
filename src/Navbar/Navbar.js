@@ -5,7 +5,7 @@ import UserContext from '../context/UserContext'
 import './Navbar.css'
 
 export default class Navbar extends Component {
-  
+  static contextType = UserContext;
 
   constructor(props) {
     super(props);
@@ -30,50 +30,45 @@ export default class Navbar extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const user_login = this.state.user_login;
-    console.log(this.context.fetchProfile(user_login));
-    // this.context.fetchProfile(user_login)
-    //   .then((response) => {
-    //     this.setState({ response });
-    //     console.log('Login API response: ', response)
-    //   }
-    //   )
+    
+    this.context.fetchProfile(user_login)    
   }
 
   render() {
     return (
-  <nav role="navigation">
-		<div className="logo-hamberder">
-			<Link to="/" className="logo">Logo Here</Link>
 
-			<a href="#">
-				<i className="fa fa-bars"></i>
-      </a>
-    </div>
-    <div className="hamberder-dropdown">
-      <Link to="/currently-reading">Currently Reading</Link>
-      <Link to="/my-library">My Library</Link>
-      <Link to="/new-entry">New Entry</Link>
-    </div>
-    
-    {(this.context.user_login) ? 
-    (<div className="user-message">
-        Welcome Back, {this.context.user_login}!
-    </div>) :
+        <nav role="navigation">
+          <div className="logo-hamberder">
+            <Link to="/" className="logo">Logo Here</Link>
 
-    (<form htmlFor="login-form" onSubmit={this.handleSubmit} >
-      <label htmlFor="username">Username: </label>
-      <input type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} />
+            <a href="#">
+              <i className="fa fa-bars"></i>
+            </a>
+          </div>
+          <div className="hamberder-dropdown">
+            <Link to="/currently-reading">Currently Reading</Link>
+            <Link to="/my-library">My Library</Link>
+            <Link to="/new-entry">New Entry</Link>
+          </div>
+          
+          {(this.context.user_login) ? 
+          (<div className="user-message">
+              Welcome Back, {this.context.user_login}!
+          </div>) :
 
-      <label htmlFor="password">Password: </label>
-      <input type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
+          (<form htmlFor="login-form" onSubmit={this.handleSubmit} >
+            <label htmlFor="username">Username: </label>
+            <input type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} />
 
-      <button>Log In</button>
-    </form>)}
-  
-  </nav>
+            <label htmlFor="password">Password: </label>
+            <input type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
+
+            <button>Log In</button>
+          </form>)}
+        
+        </nav>
 
     )
   }
 }
 
-Navbar.contextType = UserContext;

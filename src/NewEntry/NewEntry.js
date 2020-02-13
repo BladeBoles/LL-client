@@ -18,7 +18,8 @@ export default class NewEntry extends Component {
     finished: true,
     media_type: 'book',
     date_started: '',
-    date_finished: ''
+    date_finished: '',
+    library_owner: 0
   };
 
   this.handleChange = this.handleChange.bind(this);
@@ -29,7 +30,8 @@ export default class NewEntry extends Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      [name]: value,
+      library_owner: this.context.user_id
     });
   }
 

@@ -56,7 +56,7 @@ export default class MyLibrary extends Component {
             {this.state.items.map((item, i) => {
               const itemInfo = this.state.items[i];
               
-              return (item.finished) ? (<Route key={i} render={(props) => <LibraryItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : '';
+              return (item.finished && item.library_owner === this.context.user_id) ? (<Route key={i} render={(props) => <LibraryItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : '';
               })
             }
         </section>

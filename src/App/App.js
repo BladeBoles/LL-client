@@ -19,12 +19,11 @@ class App extends Component {
     this.fetchProfile = (user_id) => {
       fetch(`http://localhost:8000/api/login/${user_id}`)
       .then(res => res.json())
-      .then(response => {
-        console.log(`Received response: ${response.id}`)
-        this.setState({
+      .then((response) => {
+        return this.setState({
           user_login: response.user_login,
-          user_id: response.user_id
-        })
+          user_id: response.id
+        }, () => console.log(this.state ))
       })
     }
 
@@ -54,7 +53,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
   
       </Switch>
-    </UserContext.Provider>
+      </ UserContext.Provider>
     </>
   );
   }

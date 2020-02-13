@@ -7,7 +7,7 @@ const UserContext = React.createContext({
   user_login: '',
   user_password: '', 
   user_id: 0,
-  handleChange: () => {}
+  fetchProfile: () => {}
 })
 
 export default UserContext
