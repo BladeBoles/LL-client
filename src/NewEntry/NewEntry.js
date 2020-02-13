@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import UserContext from '../context/UserContext'
 
 export default class NewEntry extends Component {
+  
+  static contextType = UserContext;
+  
   constructor(props) {
     super(props);
 
@@ -58,6 +61,7 @@ export default class NewEntry extends Component {
       <main role="main">
       <header>
         <h1>New Media Entry</h1>
+        <h3>User logged in: {this.context.user_login}</h3>
       </header>
       <section>
         <form id="record-media" onSubmit={this.handleSubmit}>

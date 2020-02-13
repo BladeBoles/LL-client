@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './Landing.css'
+import UserContext from '../context/UserContext'
 
 export default class Landing extends Component {
-  
+  static contextType = UserContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -54,6 +56,7 @@ export default class Landing extends Component {
             <h1>Lexical Library</h1>
             
             <h3>Read all the things!</h3>
+            <h3>User logged in: {this.context.user_login}</h3>
         </header>
 
         <section>

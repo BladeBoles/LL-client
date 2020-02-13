@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import CurrentlyItem from './CurrentlyItem'
+import UserContext from '../context/UserContext'
 export default class CurrentlyReading extends Component {
+  static contextType = UserContext;
 
   constructor(props) {
     super(props);
@@ -11,7 +13,8 @@ export default class CurrentlyReading extends Component {
       weeklyHours: 7,
       progress: 0.4,
       daysLeft: 4,
-      dailyAvg: 0
+      dailyAvg: 0,
+      library_owner: 1
     }
     this.updateGoals = this.updateGoals.bind(this);
   }
@@ -23,7 +26,7 @@ export default class CurrentlyReading extends Component {
       .then (res => res.json())
       .then(response => {
         this.setState({items: response})
-        console.log('Current state:', this.state.items)
+        console.log('Current state:', this.state, 'Owner, user ids:', this.state.library_owner, this.context.user_id)
 
       })  
 
@@ -52,11 +55,8 @@ export default class CurrentlyReading extends Component {
 
     this.setState({
       [name]: parseInt(value),
-    }, () => {
-      const dailyAvg = ((this.state.weeklyHours - this.state.progress)/this.state.daysLeft);
-      this.setState({
-        dailyAvg
-      })})
+    }, 
+    this.calculateAvg)
   }
 
   editGoalsForm = () => {
@@ -72,7 +72,7 @@ export default class CurrentlyReading extends Component {
       <main role="main">
         <header role="banner">
           <h1>Currently Reading</h1>
-
+          <h3>Showing items for user_id: {this.context.user_id}</h3>
           <Link to='./new-entry'><button>Add Items</button></Link>
 
         </header>
@@ -95,8 +95,9 @@ export default class CurrentlyReading extends Component {
         <section className="cr-items">
             {this.state.items.map((item, i) => {
               const itemInfo = this.state.items[i];
-              
-              return item.finished === false ? (<Route key={i} render={(props) => <CurrentlyItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : '';
+              return (item.library_owner === this.context.user_id && item.finished === false) ? 
+              (<Route key={i} render={(props) => <CurrentlyItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : 
+              '';
               })
             }
         </section>

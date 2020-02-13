@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import UserContext from '../context/UserContext'
 
 export default class Navbar extends Component {
+  static contextType = UserContext;
+  
   render() {
     return (
       <nav role="navigation">
@@ -20,7 +22,7 @@ export default class Navbar extends Component {
       <Link to="/new-entry">New Entry</Link>
     </div>
     <div className="user-message">
-        Welcome Back, User!
+        Welcome Back, {this.context.user_login}!
     </div>
   
   </nav>
