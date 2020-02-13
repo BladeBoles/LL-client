@@ -12,7 +12,8 @@ export default class Navbar extends Component {
 
     this.state = {
       user_login: '',
-      user_password:''
+      user_password:'',
+      user_id: 0
     }
   }
 
@@ -28,21 +29,18 @@ export default class Navbar extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    fetch('http://localhost:8000/api/login')
-      .then(res => res.json())
-      .then((response) => {
-        this.setState({ response },
-          this.props.handleSubmitLogin(this.state.user_login));
-        console.log('Login API response: ', response)
-      }
-      )
+    const user_login = this.state.user_login;
+    console.log(this.context.fetchProfile(user_login));
+    // this.context.fetchProfile(user_login)
+    //   .then((response) => {
+    //     this.setState({ response });
+    //     console.log('Login API response: ', response)
+    //   }
+    //   )
   }
 
   render() {
     return (
-  <UserContext.Consumer>
-    {({ handleChange }) => (
   <nav role="navigation">
 		<div className="logo-hamberder">
 			<Link to="/" className="logo">Logo Here</Link>
@@ -69,12 +67,13 @@ export default class Navbar extends Component {
       <label htmlFor="password">Password: </label>
       <input type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
 
-      <button onClick={() => this.props.handleSubmitLogin}>Log In</button>
+      <button>Log In</button>
     </form>)}
   
   </nav>
-    )}
-  </UserContext.Consumer>
+
     )
   }
 }
+
+Navbar.contextType = UserContext;

@@ -13,27 +13,35 @@ import UserContext from '../context/UserContext';
 class App extends Component {
   static contextType = UserContext;
 
-  state ={
-    user_login: this.context.user_login
-  }
+  constructor(props) {
+    super(props);
 
-  handleSetLogin = (user_login) => {
-    this.setState({
-      user_login
-    })
-  }
+    this.fetchProfile = (user_id) => {
+      fetch(`http://localhost:8000/api/login/${user_id}`)
+      .then(res => res.json())
+      .then(response => {
+        console.log(`Received response: ${response.id}`)
+        this.setState({
+          user_login: response.user_login,
+          user_id: response.user_id
+        })
+      })
+    }
+
+    this.state = {
+      user_login: '',
+      user_id: 0,
+      fetchProfile: this.fetchProfile,
+    }
+ };
 
   render() {
-
-    const contextLogin = {
-      user_login: this.state.user_login
-    }
 
     return (
     
     <>
-    <UserContext.Provider value={{ contextLogin }}>
-      <Navbar onSetLogin={this.handleSetLogin} />
+    <UserContext.Provider value={this.state}>
+      <Navbar />
     
       <Switch>
     
@@ -46,7 +54,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
   
       </Switch>
-      </UserContext.Provider>
+    </UserContext.Provider>
     </>
   );
   }
