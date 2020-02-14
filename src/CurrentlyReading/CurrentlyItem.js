@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import UserContext from '../context/UserContext'
-
+import config from '../config'
 export default class CurrentlyItem extends Component {
   
   static contextType = UserContext;
 
   deleteCurrentlyItem = (event) => {
     const idToDelete = event.target.value;
-    console.log(idToDelete);
-    fetch(`http://localhost:8000/api/currently-reading/${idToDelete}`, {
+    fetch(`${config.API_ENDPOINT}/api/currently-reading/${idToDelete}`, {
       method: 'DELETE',
     })
     .then(res => this.props.updateView())

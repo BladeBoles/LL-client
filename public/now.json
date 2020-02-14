@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "lexical-library",
+  "name": "lexical-library",
+  "routes": [
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
+    }
+  ]
+}

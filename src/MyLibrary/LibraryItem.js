@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-
+import config from '../config'
 
 export default class LibraryItem extends Component {
   
   deleteLibraryItem = (event) => {
     const idToDelete = event.target.value;
-    console.log(idToDelete);
-    fetch(`http://localhost:8000/api/currently-reading/${idToDelete}`, {
+    fetch(`${config.API_ENDPOINT}/api/currently-reading/${idToDelete}`, {
       method: 'DELETE',
     })
     .then(res => this.props.updateView())

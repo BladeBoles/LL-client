@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import LibraryItem from './LibraryItem'
 import UserContext from '../context/UserContext'
 import './MyLibrary.css'
-
+import config from '../config'
 export default class MyLibrary extends Component {
   static contextType = UserContext;
   
@@ -15,14 +15,12 @@ export default class MyLibrary extends Component {
   }
 
   updateView = () => {
-    fetch(`http://localhost:8000/api/currently-reading`, {
+    fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
       method: 'GET'
     })
       .then (res => res.json())
       .then(response => {
         this.setState({items: response})
-        console.log('Current state:', this.state)
-
       })  
 
       .catch(error => {
