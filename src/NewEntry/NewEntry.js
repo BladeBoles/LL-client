@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../context/UserContext'
-
+import config from '../config'
 export default class NewEntry extends Component {
   
   static contextType = UserContext;
@@ -39,9 +39,8 @@ export default class NewEntry extends Component {
     event.preventDefault();
   
     let dataToPost = JSON.stringify(this.state);
-    console.log("hey there: ", dataToPost);
 
-    fetch('http://localhost:8000/api/currently-reading', {
+    fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +49,7 @@ export default class NewEntry extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+
       this.props.history.push('/currently-reading');
     })
     .catch((error) => {

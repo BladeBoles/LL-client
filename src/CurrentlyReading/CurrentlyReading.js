@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import CurrentlyItem from './CurrentlyItem'
 import UserContext from '../context/UserContext'
 import './CurrentlyReading.css'
+import config from '../config'
 export default class CurrentlyReading extends Component {
   static contextType = UserContext;
 
@@ -12,7 +13,7 @@ export default class CurrentlyReading extends Component {
       items: [],
       editGoals: false, 
       weekly_hours: 7,
-      progress: 0.4,
+      progress: 24,
       days_left: 4,
       dailyAvg: 0,
       library_owner: 0
@@ -21,14 +22,12 @@ export default class CurrentlyReading extends Component {
   }
   
   updateView = () => {
-    fetch(`http://localhost:8000/api/currently-reading`, {
+    fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
       method: 'GET'
     })
       .then (res => res.json())
       .then(response => {
         this.setState({items: response})
-        console.log('Current state:', this.state, 'Owner, user ids:', this.state.library_owner, this.context.user_id)
-
       })  
 
       .catch(error => {
@@ -37,7 +36,7 @@ export default class CurrentlyReading extends Component {
   }
 
   calculateAvg = () => {
-    const dailyAvg = ((this.state.weekly_hours - this.state.progress)/this.state.days_left);
+    const dailyAvg = ((this.state.weekly_hours - (this.state.progress / 60))/this.state.days_left);
     this.setState({
       dailyAvg
     })
@@ -46,23 +45,31 @@ export default class CurrentlyReading extends Component {
   componentDidMount() {
     this.updateView();
     this.calculateAvg();
+    this.context.fetchProfile(this.context.user_login);
   }
 
   updateProfile () {
   const userToUpdate = this.context.user_login;
   const profileUpdates = JSON.stringify({
-    weekly_hours: this.state.weekly_hours
+    weekly_hours: this.state.weekly_hours,
+    days_left: this.state.days_left,
+    progress: this.state.progress
   })
 
-  fetch(`http://localhost:8000/api/login/${userToUpdate}`, {
-    method: 'PATCH', // or 'PUT'
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: profileUpdates,
-  })
-    .then(res => this.context.fetchProfile(this.context.user_login))
-    .catch(error => console.error('Error: ', error))
+    fetch(`${config.API_ENDPOINT}/api/login/${userToUpdate}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: profileUpdates,
+    })
+      .then(res => this.context.fetchProfile(this.context.user_login))
+      .then(this.setState({
+        weekly_hours: this.context.weekly_hours,
+        progress: this.context.progress,
+        days_left: this.context.days_left
+      }))
+      .catch(error => console.error('Error: ', error))
   }
 
   updateGoals (event) {
@@ -76,6 +83,7 @@ export default class CurrentlyReading extends Component {
   }
 
   editGoalsForm = () => {
+    
     this.setState({
       editGoals: !this.state.editGoals
     }, this.updateProfile)
@@ -94,17 +102,27 @@ export default class CurrentlyReading extends Component {
         </header>
 
         <section className="goals">
-            <div>Current goal: {this.context.weekly_hours} hrs/week</div>
-            <div>Progress: {this.context.progress} hours</div>
-            <div>Days remaining: {this.context.days_left}</div>
-            <div>Average to achieve current goal: {(this.context.weekly_hours-this.context.progress)/this.context.days_left} hrs/day</div>
-            
+            { (this.state.editGoals) ? '' :  
+            (<div>
+              <div>Current goal: { this.context.weekly_hours } hrs/week</div>
+              <div>Progress: {this.context.progress / 60} hours</div>
+              <div>Days remaining: {this.context.days_left}</div>
+              <div>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</div>
+            </div>)
+            }
+
             <button onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
 
             {this.state.editGoals ? (
             <form className="goal-form">
               <label htmlFor="set-goal">Weekly Goal (hours): </label>
               <input type="number" name="weekly_hours" value={this.state.weekly_hours} onChange={this.updateGoals} />
+
+              <label htmlFor="set-goal">Total Progress (minutes): </label>
+              <input type="number" name="progress" value={this.state.progress} onChange={this.updateGoals} />
+
+              <label htmlFor="set-goal">Days Remaining: </label>
+              <input type="number" name="days_left" value={this.state.days_left} onChange={this.updateGoals} />
             </form>) : ''}
 
         </section>
