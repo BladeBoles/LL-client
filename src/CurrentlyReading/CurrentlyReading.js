@@ -13,7 +13,7 @@ export default class CurrentlyReading extends Component {
       items: [],
       editGoals: false, 
       weekly_hours: 7,
-      progress: 0.4,
+      progress: 24,
       days_left: 4,
       dailyAvg: 0,
       library_owner: 0
@@ -36,7 +36,7 @@ export default class CurrentlyReading extends Component {
   }
 
   calculateAvg = () => {
-    const dailyAvg = ((this.state.weekly_hours - this.state.progress)/this.state.days_left);
+    const dailyAvg = ((this.state.weekly_hours - (this.state.progress / 60))/this.state.days_left);
     this.setState({
       dailyAvg
     })
@@ -102,11 +102,15 @@ export default class CurrentlyReading extends Component {
         </header>
 
         <section className="goals">
-            <div>Current goal: {(this.state.editGoals) ? 'updating ' : this.context.weekly_hours } hrs/week</div>
-            <div>Progress: {this.context.progress} hours</div>
-            <div>Days remaining: {this.context.days_left}</div>
-            <div>Average to achieve current goal: {(this.context.weekly_hours-this.context.progress)/this.context.days_left} hrs/day</div>
-            
+            { (this.state.editGoals) ? '' :  
+            (<div>
+              <div>Current goal: { this.context.weekly_hours } hrs/week</div>
+              <div>Progress: {this.context.progress / 60} hours</div>
+              <div>Days remaining: {this.context.days_left}</div>
+              <div>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</div>
+            </div>)
+            }
+
             <button onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
 
             {this.state.editGoals ? (
@@ -114,7 +118,7 @@ export default class CurrentlyReading extends Component {
               <label htmlFor="set-goal">Weekly Goal (hours): </label>
               <input type="number" name="weekly_hours" value={this.state.weekly_hours} onChange={this.updateGoals} />
 
-              <label htmlFor="set-goal">Progress (hours): </label>
+              <label htmlFor="set-goal">Total Progress (minutes): </label>
               <input type="number" name="progress" value={this.state.progress} onChange={this.updateGoals} />
 
               <label htmlFor="set-goal">Days Remaining: </label>
