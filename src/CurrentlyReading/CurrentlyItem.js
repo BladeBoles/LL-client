@@ -10,13 +10,7 @@ export default class CurrentlyItem extends Component {
 
     this.state = {
       editing: false,
-      author: this.props.itemInfo.author, 
-      current_progress: this.props.itemInfo.current_progress, 
-      date_started: this.props.itemInfo.date_started, 
-      media_name: this.props.itemInfo.media_name,
-      media_type: this.props.itemInfo.media_type,
-      media_url: this.props.itemInfo.media_url,
-      notes: this.props.itemInfo.notes 
+      ...this.props.itemInfo
     }
   }
 
@@ -46,8 +40,8 @@ export default class CurrentlyItem extends Component {
     event.preventDefault();
     
     let updateInfo = this.state;
-    delete updateInfo.editing; 
     this.context.updateItem(this.props.itemInfo.id, updateInfo);
+    console.log(updateInfo);
     this.editCurrentlyItem();
   }  
 
@@ -74,7 +68,7 @@ export default class CurrentlyItem extends Component {
           <input type="text" name="author"  value={this.state.author} onChange={this.editFormCurrentlyItem} />
 
           <label htmlFor="current_progress">Progress(minutes): </label>
-          <input type="text" name="current_progress" value={this.state.current_progress} onChange={this.editFormCurrentlyItem} />
+          <input type="number" name="current_progress" value={this.state.current_progress} onChange={this.editFormCurrentlyItem} />
 
           <label htmlFor="date_started">Date Started: </label>
           <input type="date" name="date_started" value={this.state.date_started} onChange={this.editFormCurrentlyItem} />

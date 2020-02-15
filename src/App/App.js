@@ -75,8 +75,8 @@ class App extends Component {
     }
 
     this.updateItem = (itemIdToUpdate, itemUpdates) => {
-  
-      fetch(`${config.API_ENDPOINT}/api/my-library/${itemIdToUpdate}`, {
+    
+      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemIdToUpdate}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
