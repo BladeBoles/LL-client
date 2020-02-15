@@ -54,7 +54,7 @@ export default class CurrentlyItem extends Component {
           <h4>Title: {media_name} ({media_type})</h4> 
           <p>Progress: {(current_progress)/60} hours</p>
           <ul>
-            <li key={`${id}`}>: {}</li>
+            <li key={`${id}`}>Author: {author}</li>
             <li key={`${id}url`}>URL: {media_url}</li>
             <li key={`${id}notes`}>Notes: {notes}</li>
             <li key={`${id}started`}>Started on: {date_started}</li>
@@ -65,7 +65,7 @@ export default class CurrentlyItem extends Component {
         {(this.state.editing) ? 
         (<form onSubmit={this.updateCurrentlyItem}>
           <label htmlFor="author">Author: </label>
-          <input type="text" name="author"  value={this.state.author} onChange={this.editFormCurrentlyItem} />
+          <input type="text" name="author" value={this.state.author} onChange={this.editFormCurrentlyItem} />
 
           <label htmlFor="current_progress">Progress(minutes): </label>
           <input type="number" name="current_progress" value={this.state.current_progress} onChange={this.editFormCurrentlyItem} />

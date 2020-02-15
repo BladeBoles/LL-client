@@ -18,7 +18,7 @@ class App extends Component {
     super(props);
 
     this.fetchProfile = (user_login) => {
-      fetch(`${config.API_ENDPOINT}/api/login/${user_login}`)
+      fetch(`http://localhost:8000/api/login/${user_login}`)
       .then((res) => {
 
         return res.json()
@@ -37,7 +37,7 @@ class App extends Component {
     }
 
     this.updateView = () => {
-      fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
+      fetch(`http://localhost:8000/api/currently-reading`, {
         method: 'GET'
       })
         .then (res => res.json())
@@ -54,7 +54,7 @@ class App extends Component {
   
       const userToUpdate = this.state.user_login;
   
-      fetch(`${config.API_ENDPOINT}/api/login/${userToUpdate}`, {
+      fetch(`http://localhost:8000/api/login/${userToUpdate}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ class App extends Component {
     }
 
     this.deleteItem = (itemToDelete) => {
-      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemToDelete}`, {
+      fetch(`http://localhost:8000/api/currently-reading/${itemToDelete}`, {
         method: 'DELETE',
       })
       .then(res => this.updateView())
@@ -76,20 +76,31 @@ class App extends Component {
 
     this.updateItem = (itemIdToUpdate, itemUpdates) => {
     
-      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemIdToUpdate}`, {
+      fetch(`http://localhost:8000/api/currently-reading/${itemIdToUpdate}`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify(itemUpdates),
       })
         .then(res => res.json())
-        .then(res => this.updateView)
+        .then(res => this.updateView())
         .catch(error => console.error('Error: ', error))
     }
 
     this.state = {
-      items: [],
+      items: [
+        {
+          id: 0,
+          media_name: '',
+          author: '',
+          media_url: '',
+          current_progress: 0,
+          notes: '',
+          finished: false,
+          media_type: '',
+          date_started: '',
+          date_finished: null,
+          library_owner: 0
+        }
+      ],
       user_login: '',
       user_id: 0,
       weekly_hours: 0,

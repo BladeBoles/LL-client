@@ -13,7 +13,8 @@ const UserContext = React.createContext({
   fetchProfile: () => {},
   updateView: () => {},
   deleteItem: () => {},
-  updateItem: () => {}
+  updateItem: () => {},
+  updateProfile: () => {}
 })
 
 export default UserContext

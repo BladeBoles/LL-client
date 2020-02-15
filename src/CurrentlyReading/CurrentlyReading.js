@@ -91,9 +91,8 @@ export default class CurrentlyReading extends Component {
 
         <section className="cr-items">
             {this.context.items.map((item, i) => {
-              const itemInfo = this.context.items[i];
               return (item.library_owner === this.context.user_id && item.finished === false) ? 
-              (<Route key={i} render={(props) => <CurrentlyItem itemInfo={itemInfo} key={i} /> } />) : 
+              (<Route key={i} render={(props) => <CurrentlyItem itemInfo={item} key={i} /> } />) : 
               '';
               })
             }
