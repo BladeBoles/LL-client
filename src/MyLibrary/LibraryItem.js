@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import config from '../config'
+import UserContext from '../context/UserContext'
 
 export default class LibraryItem extends Component {
-  
+  static contextType = UserContext;
+
   deleteLibraryItem = (event) => {
     const idToDelete = event.target.value;
-    fetch(`${config.API_ENDPOINT}/api/currently-reading/${idToDelete}`, {
-      method: 'DELETE',
-    })
-    .then(res => this.props.updateView())
-    .catch(error => console.error('error: ', error))
+    
+    this.context.deleteItem(idToDelete)
   }
 
   render() {
-    const { author, current_progress, date_started, date_finished, media_name, media_type, media_url, notes, id } = this.props.props;
+    const { author, current_progress, date_started, date_finished, media_name, media_type, media_url, notes, id } = this.props.itemInfo;
     return (
       
       <div className="expanded">

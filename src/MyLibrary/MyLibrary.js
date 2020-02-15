@@ -14,22 +14,8 @@ export default class MyLibrary extends Component {
     }
   }
 
-  updateView = () => {
-    fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
-      method: 'GET'
-    })
-      .then (res => res.json())
-      .then(response => {
-        this.setState({items: response})
-      })  
-
-      .catch(error => {
-        console.error(error)
-      })
-  }
-
   componentDidMount() {
-    this.updateView();
+    this.context.updateView();
   }
 
   render() {
@@ -51,10 +37,10 @@ export default class MyLibrary extends Component {
     </header>
     <main role="main">
         <section className="ml-items">
-            {this.state.items.map((item, i) => {
-              const itemInfo = this.state.items[i];
+            {this.context.items.map((item, i) => {
+              const itemInfo = this.context.items[i];
               
-              return (item.finished && item.library_owner === this.context.user_id) ? (<Route key={i} render={(props) => <LibraryItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : '';
+              return (item.finished && item.library_owner === this.context.user_id) ? (<Route key={i} render={(props) => <LibraryItem itemInfo={itemInfo} key={i} /> } />) : '';
               })
             }
         </section>

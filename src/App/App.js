@@ -17,10 +17,10 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.fetchProfile = (user_id) => {
-      fetch(`${config.API_ENDPOINT}/api/login/${user_id}`)
+    this.fetchProfile = (user_login) => {
+      fetch(`${config.API_ENDPOINT}/api/login/${user_login}`)
       .then((res) => {
-        debugger;
+
         return res.json()
       
       })
@@ -36,13 +36,70 @@ class App extends Component {
       })
     }
 
+    this.updateView = () => {
+      fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
+        method: 'GET'
+      })
+        .then (res => res.json())
+        .then(response => {
+          this.setState({items: response})
+        })  
+  
+        .catch(error => {
+          console.error(error)
+        })
+    }
+
+    this.updateProfile = (profileUpdates) => {
+  
+      const userToUpdate = this.state.user_login;
+  
+      fetch(`${config.API_ENDPOINT}/api/login/${userToUpdate}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: profileUpdates,
+      })
+        .then(res => res.json())
+        .then(res => this.fetchProfile(this.state.user_login))
+        .catch(error => console.error('Error: ', error))
+    }
+
+    this.deleteItem = (itemToDelete) => {
+      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemToDelete}`, {
+        method: 'DELETE',
+      })
+      .then(res => this.updateView())
+      .catch(error => console.error('error: ', error))
+    }
+
+    this.updateItem = (itemIdToUpdate, itemUpdates) => {
+  
+      fetch(`${config.API_ENDPOINT}/api/my-library/${itemIdToUpdate}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(itemUpdates),
+      })
+        .then(res => res.json())
+        .then(res => this.updateView)
+        .catch(error => console.error('Error: ', error))
+    }
+
     this.state = {
+      items: [],
       user_login: '',
       user_id: 0,
       weekly_hours: 0,
       progress: 0,
       days_left: 0,
       fetchProfile: this.fetchProfile,
+      updateProfile: this.updateProfile,
+      updateView: this.updateView,
+      deleteItem: this.deleteItem,
+      updateItem: this.updateItem
     }
  };
 

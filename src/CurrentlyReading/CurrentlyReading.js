@@ -10,69 +10,32 @@ export default class CurrentlyReading extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
       editGoals: false, 
-      weekly_hours: 7,
-      progress: 24,
-      days_left: 4,
-      dailyAvg: 0,
+      weekly_hours: 0,
+      progress: 0,
+      days_left: 0,
       library_owner: 0
     }
-    this.updateGoals = this.updateGoals.bind(this);
   }
   
-  updateView = () => {
-    fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
-      method: 'GET'
-    })
-      .then (res => res.json())
-      .then(response => {
-        this.setState({items: response})
-      })  
-
-      .catch(error => {
-        console.error(error)
-      })
-  }
-
-  calculateAvg = () => {
-    const dailyAvg = ((this.state.weekly_hours - (this.state.progress / 60))/this.state.days_left);
-    this.setState({
-      dailyAvg
-    })
-  }
-
   componentDidMount() {
-    this.updateView();
-    this.calculateAvg();
     this.context.fetchProfile(this.context.user_login);
+    this.context.updateView();
   }
 
   updateProfile () {
-  const userToUpdate = this.context.user_login;
+  
   const profileUpdates = JSON.stringify({
     weekly_hours: this.state.weekly_hours,
     days_left: this.state.days_left,
     progress: this.state.progress
   })
 
-    fetch(`${config.API_ENDPOINT}/api/login/${userToUpdate}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: profileUpdates,
-    })
-      .then(res => this.context.fetchProfile(this.context.user_login))
-      .then(this.setState({
-        weekly_hours: this.context.weekly_hours,
-        progress: this.context.progress,
-        days_left: this.context.days_left
-      }))
-      .catch(error => console.error('Error: ', error))
+  this.context.updateProfile(profileUpdates);
+
   }
 
-  updateGoals (event) {
+  updateGoals = (event) => {
     event.preventDefault();
     const target = event.target;
     const name = target.name;
@@ -82,8 +45,7 @@ export default class CurrentlyReading extends Component {
     })
   }
 
-  editGoalsForm = () => {
-    
+  editGoalsForm = () => {  
     this.setState({
       editGoals: !this.state.editGoals
     }, this.updateProfile)
@@ -128,10 +90,10 @@ export default class CurrentlyReading extends Component {
         </section>
 
         <section className="cr-items">
-            {this.state.items.map((item, i) => {
-              const itemInfo = this.state.items[i];
+            {this.context.items.map((item, i) => {
+              const itemInfo = this.context.items[i];
               return (item.library_owner === this.context.user_id && item.finished === false) ? 
-              (<Route key={i} render={(props) => <CurrentlyItem updateView={this.updateView} props={itemInfo} key={i} /> } />) : 
+              (<Route key={i} render={(props) => <CurrentlyItem itemInfo={itemInfo} key={i} /> } />) : 
               '';
               })
             }
