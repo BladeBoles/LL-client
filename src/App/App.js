@@ -19,8 +19,13 @@ class App extends Component {
 
     this.fetchProfile = (user_id) => {
       fetch(`${config.API_ENDPOINT}/api/login/${user_id}`)
-      .then(res => res.json())
+      .then((res) => {
+        debugger;
+        return res.json()
+      
+      })
       .then((response) => {
+        
         return this.setState({
           user_login: response.user_login,
           user_id: response.id,
