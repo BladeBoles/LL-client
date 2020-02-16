@@ -31,7 +31,7 @@ export default class Landing extends Component {
     event.preventDefault();
   
     let dataToPost = JSON.stringify(this.state);
-    fetch(`http://localhost:8000/api/new-user`, {
+    fetch(`${config.API_ENDPOINT}/api/new-user`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

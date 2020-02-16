@@ -40,7 +40,7 @@ export default class NewEntry extends Component {
   
     let dataToPost = JSON.stringify(this.state);
 
-    fetch(`http://localhost:8000/api/currently-reading`, {
+    fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ class App extends Component {
     super(props);
 
     this.fetchProfile = (user_login) => {
-      fetch(`http://localhost:8000/api/login/${user_login}`)
+      fetch(`${config.API_ENDPOINT}/api/login/${user_login}`)
       .then((res) => {
 
         return res.json()
@@ -37,7 +37,7 @@ class App extends Component {
     }
 
     this.updateView = () => {
-      fetch(`http://localhost:8000/api/currently-reading`, {
+      fetch(`${config.API_ENDPOINT}/api/currently-reading`, {
         method: 'GET'
       })
         .then (res => res.json())
@@ -54,7 +54,7 @@ class App extends Component {
   
       const userToUpdate = this.state.user_login;
   
-      fetch(`http://localhost:8000/api/login/${userToUpdate}`, {
+      fetch(`${config.API_ENDPOINT}/api/login/${userToUpdate}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ class App extends Component {
     }
 
     this.deleteItem = (itemToDelete) => {
-      fetch(`http://localhost:8000/api/currently-reading/${itemToDelete}`, {
+      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemToDelete}`, {
         method: 'DELETE',
       })
       .then(res => this.updateView())
@@ -76,11 +76,14 @@ class App extends Component {
 
     this.updateItem = (itemIdToUpdate, itemUpdates) => {
     
-      fetch(`http://localhost:8000/api/currently-reading/${itemIdToUpdate}`, {
+      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemIdToUpdate}`, {
         method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(itemUpdates),
       })
-        .then(res => res.json())
+        .then(res => console.log(res))
         .then(res => this.updateView())
         .catch(error => console.error('Error: ', error))
     }
