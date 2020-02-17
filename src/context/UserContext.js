@@ -10,7 +10,11 @@ const UserContext = React.createContext({
   weekly_hours: 0,
   progress: 0,
   days_left: 0,
-  fetchProfile: () => {}
+  fetchProfile: () => {},
+  updateView: () => {},
+  deleteItem: () => {},
+  updateItem: () => {},
+  updateProfile: () => {}
 })
 
 export default UserContext
