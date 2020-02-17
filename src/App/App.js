@@ -87,6 +87,21 @@ class App extends Component {
         .catch(error => console.error('Error: ', error))
     }
 
+    this.completedItem = (itemIdToUpdate, itemProgress ) => {
+      itemProgress = !itemProgress;
+      console.log(JSON.stringify({"finished": itemProgress}))
+      fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemIdToUpdate}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({"finished": itemProgress}),
+      })
+        .then(res => console.log(res))
+        .then(res => this.updateView())
+        .catch(error => console.error('Error: ', error))
+    }
+
     this.state = {
       items: [
         {
@@ -112,7 +127,8 @@ class App extends Component {
       updateProfile: this.updateProfile,
       updateView: this.updateView,
       deleteItem: this.deleteItem,
-      updateItem: this.updateItem
+      updateItem: this.updateItem,
+      completedItem: this.completedItem
     }
  };
 

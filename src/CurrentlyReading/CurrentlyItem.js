@@ -45,6 +45,11 @@ export default class CurrentlyItem extends Component {
     this.editCurrentlyItem();
   }  
 
+  completedItem = (event) => {
+    event.preventDefault();
+    this.context.completedItem(this.props.itemInfo.id, this.props.itemInfo.finished);
+  }
+
   render() {
     const { author , current_progress, date_started, media_name, media_type, media_url, notes, id, library_owner } = this.props.itemInfo;
     return (
@@ -91,6 +96,7 @@ export default class CurrentlyItem extends Component {
         }
         <button value={id} onClick={this.editCurrentlyItem}>Edit Item</button>
         <button value={id} onClick={this.deleteCurrentlyItem}>Delete Item</button>
+      <button value={id} onClick={this.completedItem}>Mark Item {this.props.itemInfo.finished === true ? "In Progress" : "Completed"}</button>
       </div>
     );
   }
