@@ -61,7 +61,6 @@ class App extends Component {
         },
         body: profileUpdates,
       })
-        .then(res => res.json())
         .then(res => this.fetchProfile(this.state.user_login))
         .catch(error => console.error('Error: ', error))
     }
