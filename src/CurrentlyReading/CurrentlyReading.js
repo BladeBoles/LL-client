@@ -66,7 +66,7 @@ export default class CurrentlyReading extends Component {
         <section className="goals">
             { (this.state.editGoals) ? '' :  
             (<div>
-              <div>Current goal: { this.context.weekly_hours } hrs/week</div>
+              <div>Current goal: { this.context.weekly_hours } hours</div>
               <div>Progress: {this.context.progress / 60} hours</div>
               <div>Days remaining: {this.context.days_left}</div>
               <div>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</div>
@@ -77,7 +77,7 @@ export default class CurrentlyReading extends Component {
 
             {this.state.editGoals ? (
             <form className="goal-form">
-              <label htmlFor="set-goal">Weekly Goal (hours): </label>
+              <label htmlFor="set-goal">Current Goal (hours): </label>
               <input type="number" name="weekly_hours" value={this.state.weekly_hours} onChange={this.updateGoals} />
 
               <label htmlFor="set-goal">Total Progress (minutes): </label>
