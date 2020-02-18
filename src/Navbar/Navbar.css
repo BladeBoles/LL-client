@@ -2,60 +2,48 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Open Sans",
-  sans-serif; 
-  font-size: 20px;
-  color: #444;
-  text-align: center;
-  line-height: 1.5;
+.topnav {
+  overflow: hidden;
+  background-color: #dfcec2;
+  position: relative;
 }
 
-nav,
-footer {
-  padding: 1% 0;
-  background-color: #aaa;
+.topnav #hamberder-dropdown {
+  display: none;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-hamberder {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 28px;
-}
-
-a {
+/* Style navigation menu links */
+.topnav a {
+  color: #837a71;
+  padding: 14px 16px;
   text-decoration: none;
-  color: #444;
+  font-size: 17px;
+  display: block;
+  text-align: left;
 }
 
-.user-message {
-  font-size: 14px;
-  text-align: right;
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: #dfcec2;
+  display: block;
+  position: absolute;
+  font-size: 48px;
+  right: 0;
+  top: 0;
 }
 
-.hamberder-dropdown {
+
+.topnav a:hover {
+
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  color: white;
+  text-align: left;
+}
+
+form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-}
-
-header {
-  padding-top: 5%;
-  margin-bottom: 10px;
 }

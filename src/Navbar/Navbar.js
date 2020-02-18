@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../context/UserContext'
 import './Navbar.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faBars} from '@fortawesome/free-solid-svg-icons'
 
 export default class Navbar extends Component {
   static contextType = UserContext;
@@ -34,22 +36,29 @@ export default class Navbar extends Component {
     this.context.fetchProfile(user_login)    
   }
 
+  toggleDropdown = (event) => {
+    event.preventDefault();
+    const toggled = document.getElementById("hamberder-dropdown");
+    if(toggled.style.display === "block") {
+      toggled.style.display = "none";
+    } else {
+      toggled.style.display = "block";
+    }
+  }
+
   render() {
     return (
 
-        <nav role="navigation">
-          <div className="logo-hamberder">
-            <Link to="/" className="logo">Logo Here</Link>
+        <nav className="topnav" role="navigation">
+          <Link to="/" className="active"><img src={require("../assets/logo.png")} width="64" alt="logo" /></Link>
 
-            <a href="#">
-              <i className="fa fa-bars"></i>
-            </a>
-          </div>
-          <div className="hamberder-dropdown">
+          <div id="hamberder-dropdown">
             <Link to="/currently-reading">Currently Reading</Link>
             <Link to="/my-library">My Library</Link>
             <Link to="/new-entry">New Entry</Link>
           </div>
+
+          <Link class="icon" to="/" className="icon" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
           
           {(this.context.user_login) ? 
           (<div className="user-message">
