@@ -1,1 +1,46 @@
 
+form.item-column {
+  align-items: flex-start;
+  padding: 5%;
+  border: 1px solid #2cb7ab;  
+  margin: 5%;
+  background: #edf8f7;
+  border-radius: 1em;
+}
+
+.form-section {
+  margin-bottom: 1em;
+}
+
+div.entry-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+button#submit-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2cb7ab;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
+}
+
+button#cancel-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 30%;
+  cursor: pointer;
+}
+

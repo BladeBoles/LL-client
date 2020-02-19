@@ -58,18 +58,18 @@ export default class CurrentlyReading extends Component {
       <main role="main">
         <header role="banner">
           <h1>Currently Reading</h1>
-          <Link to='./new-entry'><button>Add Items</button></Link>
+          <Link to='./new-entry'><button id="add-items">Add Items</button></Link>
 
         </header>
 
         <section className="goals">
             { (this.state.editGoals) ? '' :  
-            (<div>
-              <div>Current goal: { this.context.weekly_hours } hours</div>
-              <div>Progress: {this.context.progress / 60} hours</div>
-              <div>Days remaining: {this.context.days_left}</div>
-              <div>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</div>
-            </div>)
+            (<ul>
+              <li>Current goal: { this.context.weekly_hours } hours</li>
+              <li>Progress: {this.context.progress / 60} hours</li>
+              <li>Days remaining: {this.context.days_left}</li>
+              <li>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</li>
+            </ul>)
             }
 
             {this.state.editGoals ? (

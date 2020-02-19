@@ -6,9 +6,10 @@ div.outer {
   border: 1px solid #2cb7ab;  
   margin: 5%;
   border-radius: 1em;
+  width: auto;
 }
 
-div.item-column {
+.item-column {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,28 +21,92 @@ div.item-column {
   flex-direction: row;
 }
 
-.timer-button-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 section.goals {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #645c56;  
   margin: 5%;
+  padding-top: 1em;
   background: #e4d6cd;
   border-radius: 1em; 
+  font-size: 20px;
+  font-weight: 400;
+}
+
+div.item-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button#add-items {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 20px 50px 20px 50px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
 }
 
 button.goal-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
   background: #2cb7ab;
+  padding: 20px 50px 20px 50px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
 }
 
 button#edit-button, button#mark-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
   background: #2cb7ab;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+
+button#mark-button {
+  margin-bottom: 10px;
+}
+button#delete-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li {
+  font-size: 20px;
+  font-weight: lighter;
+  list-style-type: none;
+  margin-left: none;
 }
 
 

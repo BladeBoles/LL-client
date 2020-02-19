@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UserContext from '../context/UserContext'
 import config from '../config'
+import './CurrentlyReading.css'
 export default class CurrentlyItem extends Component {
   
   static contextType = UserContext;
@@ -56,27 +57,21 @@ export default class CurrentlyItem extends Component {
       
       <div className="outer item-column">
         <h3>Title: {media_name} ({media_type})</h3> 
-        <div className="item-column">
-          <div className="item-column">
             <p>Progress: {(current_progress)/60} hours</p>
             <ul>
               <li key={`${id}`}>Author: {author}</li>
               <li key={`${id}url`}>URL: {media_url}</li>
               <li key={`${id}notes`}>Notes: {notes}</li>
               <li key={`${id}started`}>Started on: {date_started}</li>
-              
             </ul>
-          </div>
-
           <div class="item-buttons item-row">
-            <button id="edit-button" value={id} onClick={this.editCurrentlyItem}>Edit Item</button>
-            <button id="delete-button" value={id} onClick={this.deleteCurrentlyItem}>Delete Item</button>
-            <button id="mark-button" value={id} onClick={this.completedItem}>Mark Item {this.props.itemInfo.finished === true ? "In Progress" : "Completed"}</button>
-            
+            <button id="edit-button" value={id} onClick={this.editCurrentlyItem}>Edit</button>
+            <button id="delete-button" value={id} onClick={this.deleteCurrentlyItem}>Delete</button>
           </div>
-
+            <button id="mark-button" value={id} onClick={this.completedItem}>Mark {this.props.itemInfo.finished === true ? '"In Progress"' : "Completed"}</button>  
           {(this.state.editing) ? 
-          (<form onSubmit={this.updateCurrentlyItem}>
+          (
+          <form class="item-column" onSubmit={this.updateCurrentlyItem}>
             <label htmlFor="author">Author: </label>
             <input type="text" name="author" value={this.state.author} onChange={this.editFormCurrentlyItem} />
 
@@ -99,11 +94,10 @@ export default class CurrentlyItem extends Component {
             <input type="text" name="notes" value={this.state.notes} onChange={this.editFormCurrentlyItem} />
 
             <button>Finished editing</button>
-          </form>) 
+          </form>
+          ) 
           : ''
-          }
-          
-        </div>  
+          }  
       </div>
     );
   }

@@ -47,12 +47,25 @@ form.navbar-form {
   color: #d76154;
 }
 
-button {
+button#submit-signup {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   background: #d76154;
   padding: 20px 50px 20px 50px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
+}
+
+button.login-button  {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 10px 25px 10px 25px;
   border-radius: 5px;
   display: inline-block;
   border: none;
