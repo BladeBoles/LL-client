@@ -8,6 +8,8 @@ import Navbar from '../Navbar/Navbar';
 import NewEntry from '../NewEntry/NewEntry';
 import UserContext from '../context/UserContext';
 import config from '../config'
+import '../index.css'
+
 
 
 

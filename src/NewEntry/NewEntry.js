@@ -62,8 +62,7 @@ export default class NewEntry extends Component {
     return (
       <main role="main">
       <header>
-        <h1>New Media Entry</h1>
-        <h3>User logged in: {this.context.user_login}</h3>
+        <h1>New Entry</h1>
       </header>
       <section>
         <form id="record-media" onSubmit={this.handleSubmit}>

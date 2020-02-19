@@ -58,7 +58,6 @@ export default class CurrentlyReading extends Component {
       <main role="main">
         <header role="banner">
           <h1>Currently Reading</h1>
-          <h3>Showing items for user_id: {this.context.user_id}</h3>
           <Link to='./new-entry'><button>Add Items</button></Link>
 
         </header>
@@ -73,8 +72,6 @@ export default class CurrentlyReading extends Component {
             </div>)
             }
 
-            <button onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
-
             {this.state.editGoals ? (
             <form className="goal-form">
               <label htmlFor="set-goal">Current Goal (hours): </label>
@@ -87,6 +84,7 @@ export default class CurrentlyReading extends Component {
               <input type="number" name="days_left" value={this.state.days_left} onChange={this.updateGoals} />
             </form>) : ''}
 
+            <button class="goal-button" onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
         </section>
 
         <section className="cr-items">

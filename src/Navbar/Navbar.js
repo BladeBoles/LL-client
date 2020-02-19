@@ -65,14 +65,18 @@ export default class Navbar extends Component {
               Welcome Back, {this.context.user_login}!
           </div>) :
 
-          (<form htmlFor="login-form" onSubmit={this.handleSubmit} >
-            <label htmlFor="username">Username: </label>
-            <input type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} />
+          (<form class="navbar-form" htmlFor="login-form" onSubmit={this.handleSubmit} >
+            <div class="username">
+              <label htmlFor="username-box">Username: </label>
+              <input id="username-box" type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} />
+            </div>  
 
-            <label htmlFor="password">Password: </label>
-            <input type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
+            <div class="password-box">
+              <label htmlFor="user_password">Password: </label>
+              <input id="user_password" type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
+            </div>
 
-            <button>Log In</button>
+            <button class="login-button">Log In</button>
           </form>)}
         
         </nav>
