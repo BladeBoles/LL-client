@@ -3,38 +3,55 @@
 }
 
 body {
-  font-family: "Open Sans",
-  sans-serif; 
+  font-family: 'Josefin Sans', sans-serif; 
   font-size: 20px;
-  color: #444;
-  text-align: center;
   line-height: 1.5;
 }
 
-nav,
-footer {
-  padding: 1% 0;
-  background-color: #aaa;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-}
-
 header {
-  padding: 12% 0;
+  font-family: 'Josefin Slab', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+h1, h2, h3, h4 {
+  font-family: 'Josefin Slab', serif;
+  font-weight: 600;
 }
 
-section {
-  min-height: 200px;
-  padding: 6% 0;
-  background-color: #bbb;
+h3 {
+  font-size: 26px;
 }
 
-section:nth-child(even) {
-  background-color: #ddd;
+section.landing-section {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #2cb7ab;  
+  margin: 5%;
+  background: #edf8f7;
+  border-radius: 1em;
+  
+}
+
+form.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.signup-form > label {
+  align-self: flex-start;
+}
+
+
+p {
+  max-width: 32em;
+  font-size: 20px;
+}
+
+button.login-button {
+  padding: 10px 25px 10px 25px;
 }

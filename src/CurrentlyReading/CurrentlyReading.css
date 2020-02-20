@@ -2,75 +2,113 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Open Sans",
-  sans-serif; 
+div.outer {
+  border: 1px solid #2cb7ab;  
+  margin: 5%;
+  border-radius: 1em;
+  width: auto;
+}
+
+.item-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #edf8f7; 
+}
+
+.item-row {
+  display: flex;
+  flex-direction: row;
+}
+
+section.goals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #645c56;  
+  margin: 5%;
+  padding-top: 1em;
+  background: #e4d6cd;
+  border-radius: 1em; 
   font-size: 20px;
-  color: #444;
-  text-align: center;
-  line-height: 1.5;
+  font-weight: 400;
 }
 
-main {
-  margin-top: 200px;
-}
-
-input {
-  width: 30%;
-}
-
-a {
-  text-decoration: none;
-  color: #444;
-}
-
-
-
-.goals {
-  background-color: #ddd;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-.expanded {
-  min-height: 200px;
+div.item-buttons {
   display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-}
-
-.timer-button-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-p {
-  margin-right: 10px;
-}
-
-header {
-  padding-top: 5%;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.inner {
-  display: flex;
-  flex-direction: column;
+button#add-items {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 20px 50px 20px 50px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
 }
 
-button {
-  max-height: 50px;
-  max-width: 200px;
-  margin-top: 10px;
+button.goal-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2cb7ab;
+  padding: 20px 50px 20px 50px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
 }
 
-section {
-  border: 1px solid black;
-  margin-bottom: 5px;
-  padding: 1% 0;
-  background-color: #bbb;
+button#edit-button, button#mark-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #2cb7ab;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+
+button#mark-button {
+  margin-bottom: 10px;
+}
+button#delete-button {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 10px 25px 10px 25px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
   display: flex;
   flex-direction: column;
-  flex-basis: 1;
+  justify-content: center;
 }
+
+li {
+  font-size: 20px;
+  font-weight: lighter;
+  list-style-type: none;
+  margin-left: none;
+}
+
+
+
+
