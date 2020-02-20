@@ -23,7 +23,8 @@ export default class CurrentlyItem extends Component {
 
   editCurrentlyItem = () => {
     this.setState({
-      editing: !this.state.editing
+      editing: !this.state.editing,
+      ...this.props.itemInfo
     })
   }
 
