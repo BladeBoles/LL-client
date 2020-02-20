@@ -98,7 +98,7 @@ export default class CurrentlyItem extends Component {
             <label htmlFor="notes">Notes: </label>
             <input type="text" name="notes" value={this.state.notes} onChange={this.editFormCurrentlyItem} />
 
-            <button>Finished editing</button>
+            <button class="finish-edit-button">Finished editing</button>
           </form>
           ) 
           : ''

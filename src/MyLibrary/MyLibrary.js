@@ -28,7 +28,7 @@ export default class MyLibrary extends Component {
       <div>
 		<header role="banner">
 			<h1>My Library</h1>
-			<Link to='./new-entry'><button>Add Items</button></Link>
+			<Link to='./new-entry'><button class="library-add-items">Add Items</button></Link>
 
     </header>
     <main role="main">

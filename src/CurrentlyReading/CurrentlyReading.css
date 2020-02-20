@@ -80,7 +80,7 @@ button.goal-button, button.submit-goal-button {
   cursor: pointer;
 }
 
-button#edit-button, button#mark-button {
+button#edit-button, button#mark-button, button.finish-edit-button {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
@@ -90,6 +90,10 @@ button#edit-button, button#mark-button {
   display: inline-block;
   border: none;
   cursor: pointer;
+}
+
+button.finish-edit-button {
+  margin-top: 10px;
 }
 
 

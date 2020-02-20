@@ -1,0 +1,12 @@
+button.library-add-items {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #d76154;
+  padding: 20px 50px 20px 50px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
+}
