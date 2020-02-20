@@ -37,7 +37,9 @@ export default class Landing extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      this.props.history.push('/currently-reading');
+      this.context.fetchProfile(this.state.user_login)
+      this.props.history.push('/currently-reading')
+
     })
     .catch((error) => {
       console.error('Error:', error)

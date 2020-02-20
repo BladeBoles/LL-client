@@ -46,6 +46,10 @@ export default class Navbar extends Component {
     }
   }
 
+  componentDidMount() {
+    this.context.fetchProfile(this.context.user_login)
+  }
+
   render() {
     return (
 

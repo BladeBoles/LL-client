@@ -51,6 +51,10 @@ export default class CurrentlyItem extends Component {
     this.context.completedItem(this.props.itemInfo.id, this.props.itemInfo.finished);
   }
 
+  componentDidMount() {
+    this.context.fetchProfile(this.context.user_login);
+  }
+
   render() {
     const { author , current_progress, date_started, media_name, media_type, media_url, notes, id, library_owner } = this.props.itemInfo;
     return (

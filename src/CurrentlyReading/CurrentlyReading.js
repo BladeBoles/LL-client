@@ -19,7 +19,6 @@ export default class CurrentlyReading extends Component {
   }
   
   componentDidMount() {
-    this.context.fetchProfile(this.context.user_login);
     this.context.updateView();
   }
 
