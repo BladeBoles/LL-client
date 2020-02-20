@@ -23,7 +23,8 @@ export default class CurrentlyItem extends Component {
 
   editCurrentlyItem = () => {
     this.setState({
-      editing: !this.state.editing
+      editing: !this.state.editing,
+      ...this.props.itemInfo
     })
   }
 
@@ -49,6 +50,10 @@ export default class CurrentlyItem extends Component {
   completedItem = (event) => {
     event.preventDefault();
     this.context.completedItem(this.props.itemInfo.id, this.props.itemInfo.finished);
+  }
+
+  componentDidMount() {
+    this.context.fetchProfile(this.context.user_login);
   }
 
   render() {
@@ -93,7 +98,7 @@ export default class CurrentlyItem extends Component {
             <label htmlFor="notes">Notes: </label>
             <input type="text" name="notes" value={this.state.notes} onChange={this.editFormCurrentlyItem} />
 
-            <button>Finished editing</button>
+            <button class="finish-edit-button">Finished editing</button>
           </form>
           ) 
           : ''

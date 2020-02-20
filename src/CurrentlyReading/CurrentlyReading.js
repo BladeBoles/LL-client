@@ -19,7 +19,6 @@ export default class CurrentlyReading extends Component {
   }
   
   componentDidMount() {
-    this.context.fetchProfile(this.context.user_login);
     this.context.updateView();
   }
 
@@ -47,6 +46,15 @@ export default class CurrentlyReading extends Component {
 
   editGoalsForm = () => {  
     this.setState({
+      editGoals: !this.state.editGoals,
+      progress: this.context.progress,
+      weekly_hours: this.context.weekly_hours,
+      days_left: this.context.days_left
+    })
+  }
+
+  submitGoalsForm = () => {
+    this.setState({
       editGoals: !this.state.editGoals
     }, this.updateProfile)
   }
@@ -73,7 +81,7 @@ export default class CurrentlyReading extends Component {
             }
 
             {this.state.editGoals ? (
-            <form className="goal-form">
+            <form onSubmit={this.submitGoalsForm} className="goal-form">
               <label htmlFor="set-goal">Current Goal (hours): </label>
               <input type="number" name="weekly_hours" value={this.state.weekly_hours} onChange={this.updateGoals} />
 
@@ -82,9 +90,11 @@ export default class CurrentlyReading extends Component {
 
               <label htmlFor="set-goal">Days Remaining: </label>
               <input type="number" name="days_left" value={this.state.days_left} onChange={this.updateGoals} />
+
+              <button class="submit-goal-button">Submit Updated Goal</button>
             </form>) : ''}
 
-            <button class="goal-button" onClick={this.editGoalsForm}>{this.state.editGoals ? 'Confirm Goal' : 'Edit Goal'}</button>
+            {this.state.editGoals ? '' : <button class="goal-button" onClick={this.editGoalsForm}>Edit Goal</button>}
         </section>
 
         <section className="cr-items">
