@@ -55,7 +55,7 @@ button#add-items {
   cursor: pointer;
 }
 
-button.goal-button {
+button.goal-button, button.submit-goal-button {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
