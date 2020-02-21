@@ -10,30 +10,41 @@
 ### Screenshots:
 
 ![Currently Reading View](./src/assets/CurrentlyReadingScreenshot.png)
-
+  
+    
 **LL is designed to be easy to use, but here are what some of the features do:**
+  
 
 ![Annotated Currently Reading View](./src/assets/CurrentlyReadingHelp.png)
+  
 
 
 **In case those beautiful annotations weren't clear, here's what those features look like in action:**
+  
 
 ![New Entry View](./src/assets/NewEntryScreenshot.png)
-
+  
 **Logging a new item**
+  
 
 ![Editing Goals View](./src/assets/EditingGoalsScreenshot.png)
+  
 
 **Editing your reading goals**
 
 ### More Screenshots:
+  
 
 ![Two Item View](./src/assets/TwoItemsScreenshot.png)
+  
+  
 
 ![Edit Item View](./src/assets/EditItemScreenshot.png)
+  
 
 **Click "Edit" or "Delete" on an item to update or remove it. Mark an item as "complete" or "in progress" to move it to the appropriate section.**
-
+  
+  
 #### Upcoming Features
 
 Lexical Library is a work in progress.  Here are some future features to expect:
