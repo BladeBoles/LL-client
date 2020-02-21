@@ -22,7 +22,7 @@
 **In case those beautiful annotations weren't clear, here's what those features look like in action:**
   
 
-![New Entry View](./src/assets/NewEntryScreenshot.png)
+![New Entry View](<img src="./src/assets/NewEntryScreenshot.png" width="500" />)
   
 **Logging a new item**
   
@@ -44,7 +44,7 @@
 
 **Click "Edit" or "Delete" on an item to update or remove it. Mark an item as "complete" or "in progress" to move it to the appropriate section.**
   
-  
+
 #### Upcoming Features
 
 Lexical Library is a work in progress.  Here are some future features to expect:
