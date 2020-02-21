@@ -33,7 +33,7 @@ __Editing your reading goals__
 
 ### More Screenshots:
   
-<img src="./src/assets/TwoItemsScreenshot.png"width="700" />
+<img src="./src/assets/TwoItemsScreenshot.png" width="700" />
 <br></br>
 <br></br>
 <br></br>
