@@ -56,13 +56,12 @@ export default class Landing extends Component {
 
         <section class="landing-section">
             <h3>Set Personalized Goals</h3>
-            <p>[screenshot here]</p>
+  
             <p>Lexical Library lets you set and track reading goals based on what really matters - time spent reading.  Stop counting books and pages! Reinforce good habits and manage your precious time wisely with time-based reading goals.  Lexical Library will help you stay on track by telling you how much you need to read each day to finish your goal.</p>
         </section>
 
         <section class="landing-section">
             <h3>Everything Counts!</h3>
-            <p>[Screenshot here]</p>
             <p>I'm a firm believer that all forms of reading media are good forms.  Lexical Library doesn't care if you read books, textbooks, scientific papers, news articles, audiobooks or the backs of cereal boxes.  Other services restrict the types of media you can track (usually while trying to sell you more of it based on your habits).  Lexical Library gives you the absolute freedom to record and organize anything you read, while never sharing any of your data.  Start cataloging all the things you've read and are reading/want to read and watch your personal library grow!</p>
         </section>
 
