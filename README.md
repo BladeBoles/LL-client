@@ -1,28 +1,30 @@
 # Lexical Library
 ## *Read All the Things!*
 
-[Live App](https://lexical-library.bladeboles.now.sh/) 
+**Lexical Library is an app for tracking and storing your reading habits.**
 
-Lexical Library is an app for tracking and storing your reading habits.  
+### [Live App](https://lexical-library.bladeboles.now.sh/) 
+
+
 
 ### Screenshots:
 
 ![Currently Reading View](./src/assets/CurrentlyReadingScreenshot.png)
 
-LL is designed to be easy to use, but here are what some of the features do:
+**LL is designed to be easy to use, but here are what some of the features do:**
 
 ![Annotated Currently Reading View](./src/assets/CurrentlyReadingHelp.png)
 
 
-In case those beautiful annotations weren't clear, here's what those features look like in action:
+**In case those beautiful annotations weren't clear, here's what those features look like in action:**
 
 ![New Entry View](./src/assets/NewEntryScreenshot.png)
 
-Logging a new item
+**Logging a new item**
 
 ![Editing Goals View](./src/assets/EditingGoalsScreenshot.png)
 
-Editing your reading goals
+**Editing your reading goals**
 
 ### More Screenshots:
 
@@ -30,8 +32,7 @@ Editing your reading goals
 
 ![Edit Item View](./src/assets/EditItemScreenshot.png)
 
-Click "Edit" or "Delete" on an item to update or remove it.
-Mark an item as "complete" or "in progress" to move it to the appropriate section.
+**Click "Edit" or "Delete" on an item to update or remove it. Mark an item as "complete" or "in progress" to move it to the appropriate section.**
 
 #### Upcoming Features
 
