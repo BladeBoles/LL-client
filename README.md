@@ -22,7 +22,7 @@
 **In case those beautiful annotations weren't clear, here's what those features look like in action:**
   
 
-![New Entry View](<img src="./src/assets/NewEntryScreenshot.png" width="500" />)
+![New Entry View]<img src="./src/assets/NewEntryScreenshot.png" width="50" />
   
 **Logging a new item**
   
