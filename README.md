@@ -7,28 +7,28 @@ Lexical Library is an app for tracking and storing your reading habits.
 
 ### Screenshots:
 
-![Currently Reading View](/assets/CurrentlyReadingScreenshot.png)
+![Currently Reading View](./assets/CurrentlyReadingScreenshot.png)
 
 LL is designed to be easy to use, but here are what some of the features do:
 
-![Annotated Currently Reading View](/assets/CurrentlyReadingHelp.png)
+![Annotated Currently Reading View](./assets/CurrentlyReadingHelp.png)
 
 
 In case those beautiful annotations weren't clear, here's what those features look like in action:
 
-![New Entry View](/assets/NewEntryScreenshot.png)
+![New Entry View](./assets/NewEntryScreenshot.png)
 
 Logging a new item
 
-![Editing Goals View](/assets/EditingGoalsScreenshot.png)
+![Editing Goals View](./assets/EditingGoalsScreenshot.png)
 
 Editing your reading goals
 
 ### More Screenshots:
 
-![Two Item View](/assets/TwoItemsScreenshot.png)
+![Two Item View](./assets/TwoItemsScreenshot.png)
 
-![Edit Item View](/assets/EditItemScreenshot.png)
+![Edit Item View](./assets/EditItemScreenshot.png)
 
 Click "Edit" or "Delete" on an item to update or remove it.
 Mark an item as "complete" or "in progress" to move it to the appropriate section.
