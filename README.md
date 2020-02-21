@@ -1,68 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lexical Library
+## *Read All the Things!*
 
-## Available Scripts
+__Lexical Library is an app for tracking and storing your reading habits.__
 
-In the project directory, you can run:
+### [Live App](https://lexical-library.bladeboles.now.sh/) 
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Screenshots:
+---
+<img src="./src/assets/CurrentlyReadingScreenshot.png" width="700" />
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    
+__LL is designed to be easy to use, but here are what some of the features do:__
 
-### `npm run build`
+<img src="./src/assets/CurrentlyReadingHelp.png" width="700" />
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+__In case those beautiful annotations weren't clear, here's what those features look like in action:__
+  
+<img src="./src/assets/NewEntryScreenshot.png" width="700" />
+  
+**Logging a new item**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br />
+<br />
+<br />
+  
+<img src="./src/assets/EditingGoalsScreenshot.png" width="700" />
+  
+**Editing your reading goals**
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### More Screenshots:
+  
+<img src="./src/assets/TwoItemsScreenshot.png" width="700" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="./src/assets/EditItemScreenshot.png" width="700" />
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Click "Edit" or "Delete" on an item to update or remove it. Mark an item as "complete" or "in progress" to move it to the appropriate section.**
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Upcoming Features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Lexical Library is a work in progress.  Here are some future features to expect:
 
-### Code Splitting
+* Items in "My Library" can be filtered and sorted by date completed and type of media
+* Better time/date formatting, with the ability to choose units of time measure (minutes/hours/days/weeks)
+* Stopwatch within each item that automatically updates your current progress
+* Share goals and reading lists with friends!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### Tech Stack
+* Front End:  React, HTML5 & CSS3 (vanilla), JavaScript (ES6+)
+* Back End: Node, PostgreSQL, Express
+* Testing/Misc: npm, Mocha, Chai, Jest, Enzyme, SuperTest
+* Deployment: Zeit (front-end), Heroku (api & database)
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+
