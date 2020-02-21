@@ -22,13 +22,13 @@ __LL is designed to be easy to use, but here are what some of the features do:__
 __In case those beautiful annotations weren't clear, here's what those features look like in action:__
   
 <img src="./src/assets/NewEntryScreenshot.png" width="700" />
-<br></br>  
+  
 **Logging a new item**
 <br></br>
 <br></br>
 <br></br>  
 <img src="./src/assets/EditingGoalsScreenshot.png" width="700" />
-<br></br>  
+  
 **Editing your reading goals**
 
 ### More Screenshots:
@@ -38,9 +38,8 @@ __In case those beautiful annotations weren't clear, here's what those features 
 <br></br>
 <br></br>
 <img src="./src/assets/EditItemScreenshot.png" width="700" />
-<br></br>
+
 **Click "Edit" or "Delete" on an item to update or remove it. Mark an item as "complete" or "in progress" to move it to the appropriate section.**
-  
 
 #### Upcoming Features
 
