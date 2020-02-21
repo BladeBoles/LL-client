@@ -8,7 +8,7 @@ __Lexical Library is an app for tracking and storing your reading habits.__
 
 
 ### Screenshots:
-<br></br>
+---
 <img src="./src/assets/CurrentlyReadingScreenshot.png" width="700" />
 <br></br>
 <br></br>
