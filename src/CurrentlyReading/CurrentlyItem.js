@@ -59,7 +59,7 @@ export default class CurrentlyItem extends Component {
   }
 
   render() {
-    const { author, current_progress, date_started, media_name, media_type, media_url, notes, id } = this.props.itemInfo;
+    const { author, current_progress, date_started, date_finished, media_name, media_type, media_url, notes, id } = this.props.itemInfo;
     return (
       
       <div className="outer item-column">
@@ -69,7 +69,8 @@ export default class CurrentlyItem extends Component {
               <li key={`${id}`}>Author: {author}</li>
               <li key={`${id}url`}>URL: {media_url}</li>
               <li key={`${id}notes`}>Notes: {notes}</li>
-              <li key={`${id}started`}>Started on: {date_started}</li>
+              <li key={`${id}started`}>Started on: {date_started ? date_started.slice(0, 10) : "No start date given"}</li>
+              <li key={`${id}finished`}>Finished on: {date_finished ? date_finished.slice(0, 10) : "Not finished"}</li>
             </ul>
           <div class="item-buttons item-row">
             <button id="edit-button" value={id} onClick={this.editCurrentlyItem}>Edit</button>
@@ -86,7 +87,10 @@ export default class CurrentlyItem extends Component {
             <input type="number" name="current_progress" value={this.state.current_progress} onChange={this.editFormCurrentlyItem} />
 
             <label htmlFor="date_started">Date Started: </label>
-            <input type="date" name="date_started" value={this.state.date_started} onChange={this.editFormCurrentlyItem} />
+            <input type="date" name="date_started" value={this.state.date_started ? this.state.date_started.slice(0, 10) : this.state.date_started} onChange={this.editFormCurrentlyItem} />
+
+            <label htmlFor="date_finished">Date Finished: </label>
+            <input type="date" name="date_finished" value={this.state.date_finished ? this.state.date_finished.slice(0, 10) : ''} onChange={this.editFormCurrentlyItem} />
 
             <label htmlFor="media_name">Title: </label>
             <input type="text" name="media_name" value={this.state.media_name} onChange={this.editFormCurrentlyItem} />

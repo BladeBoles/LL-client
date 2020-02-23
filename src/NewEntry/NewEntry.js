@@ -107,11 +107,11 @@ export default class NewEntry extends Component {
           
           <div className="form-section">
             <label htmlFor="media-dates">Date started: </label>
-            <input type="date" id="start" name="date_started" value={this.state.date_started} onChange={this.handleChange} required />
+            <input type="date" id="start" name="date_started" value={this.state.date_started ? this.state.date_started.slice(0, 10) : ''} onChange={this.handleChange} required />
           </div>
           <div className="form-section">
             <label htmlFor="media-dates">Date finished (optional): </label>
-            <input type="date" id="finish" name="date_finished" value={this.state.date_finished} onChange={this.handleChange} />
+            <input type="date" id="finish" name="date_finished" value={this.state.date_finished ? this.state.date_finished.slice(0, 10) : ''} onChange={this.handleChange} />
           </div>
           <div class="entry-buttons item-row">
             <button id="submit-button" type="submit">Submit</button>
