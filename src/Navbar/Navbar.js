@@ -62,25 +62,25 @@ export default class Navbar extends Component {
             <Link to="/new-entry">New Entry</Link>
           </div>
 
-          <Link class="icon" to="/" className="icon" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
+          <Link className="icon" to="/" className="icon" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
           
           {(this.context.user_login) ? 
           (<div className="user-message">
               Welcome Back, {this.context.user_login}!
           </div>) :
 
-          (<form class="navbar-form" htmlFor="login-form" onSubmit={this.handleSubmit} >
-            <div class="username">
+          (<form className="navbar-form" htmlFor="login-form" onSubmit={this.handleSubmit} >
+            <div className="username">
               <label htmlFor="username-box">Username: </label>
               <input id="username-box" type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} />
             </div>  
 
-            <div class="password-box">
+            <div className="password-box">
               <label htmlFor="user_password">Password: </label>
               <input id="user_password" type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
             </div>
 
-            <button class="login-button">Log In</button>
+            <button className="login-button">Log In</button>
           </form>)}
         
         </nav>

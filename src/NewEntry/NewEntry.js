@@ -65,7 +65,7 @@ export default class NewEntry extends Component {
         <h1>New Entry</h1>
       </header>
       <section>
-        <form class="item-column" id="record-media" onSubmit={this.handleSubmit}>
+        <form className="item-column" id="record-media" onSubmit={this.handleSubmit}>
           <div className="form-section">
             <label htmlFor="media_title">Title (required)</label>
             <input type="text" name="media_name" value={this.state.media_name} onChange={this.handleChange} required  />
@@ -113,7 +113,7 @@ export default class NewEntry extends Component {
             <label htmlFor="media-dates">Date finished (optional): </label>
             <input type="date" id="finish" name="date_finished" value={this.state.date_finished ? this.state.date_finished.slice(0, 10) : ''} onChange={this.handleChange} />
           </div>
-          <div class="entry-buttons item-row">
+          <div className="entry-buttons item-row">
             <button id="submit-button" type="submit">Submit</button>
             <Link to='./currently-reading'><button id="cancel-button">Cancel</button></Link>
           </div>

@@ -91,10 +91,10 @@ export default class CurrentlyReading extends Component {
               <label htmlFor="set-goal">Days Remaining: </label>
               <input type="number" name="days_left" value={this.state.days_left} onChange={this.updateGoals} />
 
-              <button class="submit-goal-button">Submit Updated Goal</button>
+              <button className="submit-goal-button">Submit Updated Goal</button>
             </form>) : ''}
 
-            {this.state.editGoals ? '' : <button class="goal-button" onClick={this.editGoalsForm}>Edit Goal</button>}
+            {this.state.editGoals ? '' : <button className="goal-button" onClick={this.editGoalsForm}>Edit Goal</button>}
         </section>
 
         <section className="cr-items">

@@ -72,14 +72,14 @@ export default class CurrentlyItem extends Component {
               <li key={`${id}started`}>Started on: {date_started ? date_started.slice(0, 10) : "No start date given"}</li>
               <li key={`${id}finished`}>Finished on: {date_finished ? date_finished.slice(0, 10) : "Not finished"}</li>
             </ul>
-          <div class="item-buttons item-row">
+          <div className="item-buttons item-row">
             <button id="edit-button" value={id} onClick={this.editCurrentlyItem}>Edit</button>
             <button id="delete-button" value={id} onClick={this.deleteCurrentlyItem}>Delete</button>
           </div>
             <button id="mark-button" value={id} onClick={this.completedItem}>Mark {this.props.itemInfo.finished === true ? '"In Progress"' : "Completed"}</button>  
           {(this.state.editing) ? 
           (
-          <form class="item-column" onSubmit={this.updateCurrentlyItem}>
+          <form className="item-column" onSubmit={this.updateCurrentlyItem}>
             <label htmlFor="author">Author: </label>
             <input type="text" name="author" value={this.state.author} onChange={this.editFormCurrentlyItem} />
 
@@ -109,7 +109,7 @@ export default class CurrentlyItem extends Component {
             <label htmlFor="notes">Notes: </label>
             <input type="text" name="notes" value={this.state.notes} onChange={this.editFormCurrentlyItem} />
 
-            <button class="finish-edit-button">Finished editing</button>
+            <button className="finish-edit-button">Finished editing</button>
           </form>
           ) 
           : ''
