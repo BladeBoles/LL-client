@@ -73,10 +73,10 @@ export default class CurrentlyReading extends Component {
         <section className="goals">
             { (this.state.editGoals) ? '' :  
             (<ul>
-              <li>Current goal: { this.context.weekly_hours } hours</li>
-              <li>Progress: {this.context.progress / 60} hours</li>
+              <li>Current goal: { this.context.weekly_hours.toFixed(1) } hours</li>
+              <li>Progress: {(this.context.progress / 60).toFixed(1)} hours</li>
               <li>Days remaining: {this.context.days_left}</li>
-              <li>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</li>
+              <li>Average to achieve current goal: {((this.context.weekly_hours-(this.context.progress/60))/this.context.days_left).toFixed(1)} hrs/day</li>
             </ul>)
             }
 

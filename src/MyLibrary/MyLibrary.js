@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import UserContext from '../context/UserContext'
 import './MyLibrary.css'
-import config from '../config'
 import CurrentlyItem from '../CurrentlyReading/CurrentlyItem'
 export default class MyLibrary extends Component {
   static contextType = UserContext;
