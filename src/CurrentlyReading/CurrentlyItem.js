@@ -95,8 +95,13 @@ export default class CurrentlyItem extends Component {
             <label htmlFor="media_name">Title: </label>
             <input type="text" name="media_name" value={this.state.media_name} onChange={this.editFormCurrentlyItem} />
 
-            <label htmlFor="media_type">Media Type: </label>
-            <input type="text" name="media_type" value={this.state.media_type} onChange={this.editFormCurrentlyItem} />
+            <label htmlFor="media_type">Choose Media Type: </label>
+            <select name="media_type" value={this.state.media_type} onChange={this.editFormCurrentlyItem}>
+              <option value="book">Book</option>
+              <option value="article">Article</option>
+              <option value="audiobook">Audiobook</option>
+              <option value="other">Other</option>
+            </select>
 
             <label htmlFor="media_url">Url: </label>
             <input type="text" name="media_url" value={this.state.media_url} onChange={this.editFormCurrentlyItem} />
