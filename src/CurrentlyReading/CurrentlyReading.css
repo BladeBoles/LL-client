@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 div.outer {
   border: 1px solid #2cb7ab;  
   margin: 5%;
@@ -14,11 +19,20 @@ div.outer {
   flex-direction: column;
   align-items: center;
   background: #edf8f7; 
+  flex-basis: 600px;
+
 }
 
 .item-row {
   display: flex;
   flex-direction: row;
+}
+
+.cr-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 section.goals {
@@ -32,6 +46,8 @@ section.goals {
   border-radius: 1em; 
   font-size: 20px;
   font-weight: 400;
+  width: 30em;
+
 }
 
 div.item-buttons {
@@ -52,6 +68,10 @@ form.goal-form {
   margin: 5%;
   background: #edf8f7;
   border-radius: 1em;
+}
+
+form.item-column {
+  border: 1px solid #645c56;
 }
 
 button#add-items {
@@ -78,6 +98,11 @@ button.goal-button, button.submit-goal-button {
   border: none;
   margin: 10px 0px 10px 0px;
   cursor: pointer;
+}
+
+h3 {
+  max-width: 20em;
+  text-align: center;
 }
 
 button#edit-button, button#mark-button, button.finish-edit-button {
@@ -117,7 +142,9 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 450px;
+  width: 20em;
+  align-self: center;
+  padding-left: 0;
 }
 
 li {
@@ -127,6 +154,38 @@ li {
   margin-left: none;
 }
 
+.currently-category {
+  font-weight: 400;
+}
+
+@media (max-width: 599px) {
+  ul {
+    width: auto;
+  }
+  li {
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  section.goals {
+    width: auto;
+    align-self: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .item-column {
+    width: auto;
+    min-width: 95%;
+  }
+  .cr-items{
+    align-items: center;
+  }
+
+  form.item-column {
+    width: 90%;
+  }
+
+}
 
 
 

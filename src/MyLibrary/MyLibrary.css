@@ -10,3 +10,15 @@ button.library-add-items {
   margin: 10px 0px 10px 0px;
   cursor: pointer;
 }
+
+
+.cr-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ml-items {
+  flex-basis: 600px;
+}

@@ -63,14 +63,14 @@ export default class CurrentlyItem extends Component {
     return (
       
       <div className="outer item-column">
-        <h3>Title: {media_name} ({media_type})</h3> 
-            <p>Progress: {(current_progress)/60} hours</p>
+        <h3>{media_name} ({media_type})</h3> 
+            <p>Progress: {((current_progress)/60).toFixed(1)} hours</p>
             <ul>
-              <li key={`${id}`}>Author: {author}</li>
-              <li key={`${id}url`}>URL: {media_url}</li>
-              <li key={`${id}notes`}>Notes: {notes}</li>
-              <li key={`${id}started`}>Started on: {date_started ? date_started.slice(0, 10) : "No start date given"}</li>
-              <li key={`${id}finished`}>Finished on: {date_finished ? date_finished.slice(0, 10) : ''}</li>
+              <li key={`${id}`}><span className="currently-category">Author:</span> {author}</li>
+              <li key={`${id}url`}><span className="currently-category">URL:</span> {media_url}</li>
+              <li key={`${id}notes`}><span className="currently-category">Notes:</span> {notes}</li>
+              <li key={`${id}started`}><span className="currently-category">Started on:</span> {date_started ? date_started.slice(0, 10) : "No start date given"}</li>
+              <li key={`${id}finished`}><span className="currently-category">Finished on:</span> {date_finished ? date_finished.slice(0, 10) : 'Not Finished'}</li>
             </ul>
           <div className="item-buttons item-row">
             <button id="edit-button" value={id} onClick={this.editCurrentlyItem}>Edit</button>

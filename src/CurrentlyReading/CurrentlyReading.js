@@ -69,14 +69,14 @@ export default class CurrentlyReading extends Component {
           <Link to='./new-entry'><button id="add-items">Add Items</button></Link>
 
         </header>
-
-        <section className="goals">
+          
+          <section className="goals">
             { (this.state.editGoals) ? '' :  
             (<ul>
-              <li>Current goal: { this.context.weekly_hours.toFixed(1) } hours</li>
-              <li>Progress: {(this.context.progress / 60).toFixed(1)} hours</li>
-              <li>Days remaining: {this.context.days_left}</li>
-              <li>Average to achieve current goal: {((this.context.weekly_hours-(this.context.progress/60))/this.context.days_left).toFixed(1)} hrs/day</li>
+              <li><span className="currently-category">Current goal:</span> { this.context.weekly_hours.toFixed(1) } hours</li>
+              <li><span className="currently-category">Progress:</span> {(this.context.progress / 60).toFixed(1)} hours</li>
+              <li><span className="currently-category">Days remaining:</span> {this.context.days_left}</li>
+              <li><span className="currently-category">Average to achieve current goal:</span> {((this.context.weekly_hours-(this.context.progress/60))/this.context.days_left).toFixed(1)} hrs/day</li>
             </ul>)
             }
 
@@ -95,7 +95,7 @@ export default class CurrentlyReading extends Component {
             </form>) : ''}
 
             {this.state.editGoals ? '' : <button className="goal-button" onClick={this.editGoalsForm}>Edit Goal</button>}
-        </section>
+          </section>
 
         <section className="cr-items">
             {this.context.items.map((item, i) => {
