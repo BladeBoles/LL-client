@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import UserContext from '../context/UserContext'
-import config from '../config'
 import './CurrentlyReading.css'
 export default class CurrentlyItem extends Component {
   
@@ -49,6 +48,9 @@ export default class CurrentlyItem extends Component {
 
   completedItem = (event) => {
     event.preventDefault();
+    this.setState({
+      finished: !this.props.itemInfo.finished
+    })
     this.context.completedItem(this.props.itemInfo.id, this.props.itemInfo.finished);
   }
 
@@ -57,7 +59,7 @@ export default class CurrentlyItem extends Component {
   }
 
   render() {
-    const { author , current_progress, date_started, media_name, media_type, media_url, notes, id, library_owner } = this.props.itemInfo;
+    const { author, current_progress, date_started, media_name, media_type, media_url, notes, id } = this.props.itemInfo;
     return (
       
       <div className="outer item-column">

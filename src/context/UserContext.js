@@ -11,7 +11,8 @@ const UserContext = React.createContext({
   updateView: () => {},
   deleteItem: () => {},
   updateItem: () => {},
-  updateProfile: () => {}
+  updateProfile: () => {},
+  completedItem: () => {}
 })
 
 export default UserContext

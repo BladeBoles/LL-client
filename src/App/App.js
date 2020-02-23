@@ -91,7 +91,6 @@ class App extends Component {
 
     this.completedItem = (itemIdToUpdate, itemProgress ) => {
       itemProgress = !itemProgress;
-      console.log(JSON.stringify({"finished": itemProgress}))
       fetch(`${config.API_ENDPOINT}/api/currently-reading/${itemIdToUpdate}`, {
         method: 'PATCH',
         headers: {
@@ -107,17 +106,7 @@ class App extends Component {
     this.state = {
       items: [
         {
-          id: 0,
-          media_name: '',
-          author: '',
-          media_url: '',
-          current_progress: 0,
-          notes: '',
-          finished: false,
-          media_type: '',
-          date_started: '',
-          date_finished: null,
-          library_owner: 0
+
         }
       ],
       user_login: '',
