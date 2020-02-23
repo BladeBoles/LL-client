@@ -70,7 +70,7 @@ export default class CurrentlyItem extends Component {
               <li key={`${id}url`}>URL: {media_url}</li>
               <li key={`${id}notes`}>Notes: {notes}</li>
               <li key={`${id}started`}>Started on: {date_started ? date_started.slice(0, 10) : "No start date given"}</li>
-              <li key={`${id}finished`}>Finished on: {date_finished ? date_finished.slice(0, 10) : "Not finished"}</li>
+              <li key={`${id}finished`}>Finished on: {date_finished ? date_finished.slice(0, 10) : ''}</li>
             </ul>
           <div className="item-buttons item-row">
             <button id="edit-button" value={id} onClick={this.editCurrentlyItem}>Edit</button>

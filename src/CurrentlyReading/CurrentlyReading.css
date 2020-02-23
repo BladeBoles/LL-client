@@ -37,7 +37,7 @@ section.goals {
 div.item-buttons {
   display: flex;
   flex-direction: row;
-  width: 25%;
+  width: auto;
   justify-content: space-between;
   margin-bottom: 10px;
 }
@@ -110,12 +110,14 @@ button#delete-button {
   display: inline-block;
   border: none;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 450px;
 }
 
 li {
