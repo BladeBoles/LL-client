@@ -78,15 +78,4 @@ button.login-button  {
   cursor: pointer;
 }
 
-@media (min-width: 700px) {
-  .topnav #hamberder-dropdown {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
 
-  a.icon {
-    display: none;
-  }
-
-}
