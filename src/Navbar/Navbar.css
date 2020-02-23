@@ -22,6 +22,10 @@
   text-align: left;
 }
 
+a.dropdown-anchors {
+  text-align: center;
+}
+
 /* Style the hamburger menu */
 .topnav a.icon {
   background: #e4d6cd;
@@ -30,6 +34,7 @@
   font-size: 48px;
   right: 0;
   top: 0;
+  
 }
 
 form.navbar-form {
@@ -73,3 +78,15 @@ button.login-button  {
   cursor: pointer;
 }
 
+@media (min-width: 700px) {
+  .topnav #hamberder-dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  a.icon {
+    display: none;
+  }
+
+}

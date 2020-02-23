@@ -57,12 +57,12 @@ export default class Navbar extends Component {
           <Link to="/" className="active"><img src={require("../assets/logo.png")} width="64" alt="logo" /></Link>
 
           <div id="hamberder-dropdown">
-            <Link to="/currently-reading">Currently Reading</Link>
-            <Link to="/my-library">My Library</Link>
-            <Link to="/new-entry">New Entry</Link>
+            <Link className="dropdown-anchors" to="/currently-reading">Currently Reading</Link>
+            <Link className="dropdown-anchors" to="/my-library">My Library</Link>
+            <Link className="dropdown-anchors" to="/new-entry">New Entry</Link>
           </div>
 
-          <Link className="icon" to="/" className="icon" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
+          <Link className="icon" to="/" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
           
           {(this.context.user_login) ? 
           (<div className="user-message">
