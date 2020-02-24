@@ -69,14 +69,14 @@ export default class CurrentlyReading extends Component {
           <Link to='./new-entry'><button id="add-items">Add Items</button></Link>
 
         </header>
-
-        <section className="goals">
+          
+          <section className="goals">
             { (this.state.editGoals) ? '' :  
             (<ul>
-              <li>Current goal: { this.context.weekly_hours } hours</li>
-              <li>Progress: {this.context.progress / 60} hours</li>
-              <li>Days remaining: {this.context.days_left}</li>
-              <li>Average to achieve current goal: {(this.context.weekly_hours-(this.context.progress/60))/this.context.days_left} hrs/day</li>
+              <li><span className="currently-category">Current goal:</span> { this.context.weekly_hours.toFixed(1) } hours</li>
+              <li><span className="currently-category">Progress:</span> {(this.context.progress / 60).toFixed(1)} hours</li>
+              <li><span className="currently-category">Days remaining:</span> {this.context.days_left}</li>
+              <li><span className="currently-category">Average to achieve current goal:</span> {((this.context.weekly_hours-(this.context.progress/60))/this.context.days_left).toFixed(1)} hrs/day</li>
             </ul>)
             }
 
@@ -91,11 +91,11 @@ export default class CurrentlyReading extends Component {
               <label htmlFor="set-goal">Days Remaining: </label>
               <input type="number" name="days_left" value={this.state.days_left} onChange={this.updateGoals} />
 
-              <button class="submit-goal-button">Submit Updated Goal</button>
+              <button className="submit-goal-button">Submit Updated Goal</button>
             </form>) : ''}
 
-            {this.state.editGoals ? '' : <button class="goal-button" onClick={this.editGoalsForm}>Edit Goal</button>}
-        </section>
+            {this.state.editGoals ? '' : <button className="goal-button" onClick={this.editGoalsForm}>Edit Goal</button>}
+          </section>
 
         <section className="cr-items">
             {this.context.items.map((item, i) => {

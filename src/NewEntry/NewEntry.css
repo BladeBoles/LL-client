@@ -44,3 +44,29 @@ button#cancel-button {
   cursor: pointer;
 }
 
+@media (max-width: 599px) {
+
+  section.new-entry {
+    max-width: 95vw;
+
+  }
+
+  form.item-column {
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid #2cb7ab;
+    margin: 10px;
+    background: #edf8f7;
+    border-radius: 1em;
+    width: auto;
+}
+
+  textarea {
+    max-width: 50%;
+  }
+
+  div.form-section {
+    max-width: 90%;
+  }
+}
+
