@@ -33,8 +33,11 @@ class App extends Component {
         body: JSON.stringify(body_data)
       })
       .then((res) => {
-
-        return res.json()
+        if(res.ok) {
+          return res.json()
+        } else {
+          throw Error(res.statusText)
+        }
       
       })
       // set state for error message, if it's blank it will be undef
@@ -51,7 +54,12 @@ class App extends Component {
 
         })
       })
-      .catch(error => console.error(error.message))
+      .catch(error => {
+        this.setState({
+        errorMessage: 'Please enter a valid username and password'
+      })
+      }
+      )
     }
 
     this.updateView = () => {

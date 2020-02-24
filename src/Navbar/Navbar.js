@@ -80,6 +80,8 @@ export default class Navbar extends Component {
             </div>
 
             <button className="login-button">Log In</button>
+
+            <div className="errorMessage">{this.context.errorMessage}</div>
           </form>)}
         
         </nav>

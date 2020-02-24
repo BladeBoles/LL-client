@@ -55,7 +55,7 @@ export default class CurrentlyItem extends Component {
   }
 
   componentDidMount() {
-    this.context.fetchProfile(this.context.user_login);
+    this.context.fetchProfile(this.context.user_login, this.context.user_password);
   }
 
   render() {

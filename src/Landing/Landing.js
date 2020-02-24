@@ -37,7 +37,7 @@ export default class Landing extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      this.context.fetchProfile(this.state.user_login)
+      this.context.fetchProfile(this.state.user_login, this.state.user_password)
       this.props.history.push('/currently-reading')
 
     })
