@@ -24,6 +24,12 @@ h3 {
   font-size: 26px;
 }
 
+p.dummy {
+  font-style: italic;
+  max-width: 400px;
+  font-weight: 300;
+}
+
 section.landing-section {
 
   display: flex;
@@ -44,8 +50,9 @@ form.signup-form {
   align-items: center;
 }
 
-form.signup-form > label {
-  align-self: flex-start;
+
+form.signup-form > label, form.signup-form > input {
+  align-self: center;
 }
 
 

@@ -79,7 +79,7 @@ export default class Landing extends Component {
         <section className="landing-section">
             <h3>Sign up now and start reading more!</h3>
             <form className="signup-form" onSubmit={this.handleSubmit} >
-  
+            
               <label htmlFor="username">Desired Username: </label>
               <input id="username" type="text" name="user_login" value={this.state.username} onChange={this.handleChange} />
               
@@ -87,6 +87,8 @@ export default class Landing extends Component {
               <input id="password" type="password" name="user_password" value={this.state.password} onChange={this.handleChange} />
               
               <button id="submit-signup">Sign Up</button>
+
+              <p className="dummy">Log in as "guest" (no password) in the navbar to have a look around!</p>
             </form> 
         </section>
 
