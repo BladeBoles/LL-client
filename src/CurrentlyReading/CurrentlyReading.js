@@ -73,10 +73,10 @@ export default class CurrentlyReading extends Component {
           <section className="goals">
             { (this.state.editGoals) ? '' :  
             (<ul>
-              <li><span className="currently-category">Current goal:</span> { this.context.weekly_hours.toFixed(1) } hours</li>
-              <li><span className="currently-category">Progress:</span> {(this.context.progress / 60).toFixed(1)} hours</li>
+              <li><span className="currently-category">Current goal:</span> { this.context.weekly_hours ? this.context.weekly_hours.toFixed(1) : 0 } hours</li>
+              <li><span className="currently-category">Progress:</span> {this.context.progress ? (this.context.progress / 60).toFixed(1) : 0} hours</li>
               <li><span className="currently-category">Days remaining:</span> {this.context.days_left}</li>
-              <li><span className="currently-category">Average to achieve current goal:</span> {((this.context.weekly_hours-(this.context.progress/60))/this.context.days_left).toFixed(1)} hrs/day</li>
+              <li><span className="currently-category">Average to achieve current goal:</span> {(this.context.weekly_hours && this.context.progress && this.context.days_left) ? ((this.context.weekly_hours-(this.context.progress/60))/this.context.days_left).toFixed(1) : 0} hrs/day</li>
             </ul>)
             }
 
