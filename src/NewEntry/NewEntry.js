@@ -64,7 +64,7 @@ export default class NewEntry extends Component {
       <header>
         <h1>New Entry</h1>
       </header>
-      <section>
+      <section className="new-entry">
         <form className="item-column" id="record-media" onSubmit={this.handleSubmit}>
           <div className="form-section">
             <label htmlFor="media_title">Title (required)</label>

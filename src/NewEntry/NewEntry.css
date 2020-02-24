@@ -46,8 +46,9 @@ button#cancel-button {
 
 @media (max-width: 599px) {
 
-  section {
+  section.new-entry {
     max-width: 95vw;
+
   }
 
   form.item-column {
