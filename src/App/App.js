@@ -19,23 +19,39 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.fetchProfile = (user_login) => {
-      fetch(`${config.API_ENDPOINT}/api/login/${user_login}`)
+    this.fetchProfile = (user_login, user_password) => {
+      console.log(this.state.user_password)
+      const body_data = {
+        user_password: user_password
+      }
+      
+      fetch(`${config.API_ENDPOINT}/api/login/${user_login}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body_data)
+      })
       .then((res) => {
 
         return res.json()
       
       })
+      // set state for error message, if it's blank it will be undef
       .then((response) => {
-        
+
         return this.setState({
           user_login: response.user_login,
+          user_password: response.user_password,
           user_id: response.id,
           days_left: response.days_left,
           progress: response.progress,
-          weekly_hours: response.weekly_hours
+          weekly_hours: response.weekly_hours,
+          errorMessage: ''
+
         })
       })
+      .catch(error => console.error(error.message))
     }
 
     this.updateView = () => {
@@ -63,7 +79,7 @@ class App extends Component {
         },
         body: profileUpdates,
       })
-        .then(res => this.fetchProfile(this.state.user_login))
+        .then(res => this.fetchProfile(this.state.user_login, this.state.user_password))
         .catch(error => console.error('Error: ', error))
     }
 
@@ -110,6 +126,7 @@ class App extends Component {
         }
       ],
       user_login: '',
+      user_password: '',
       user_id: 0,
       weekly_hours: 0,
       progress: 0,
@@ -119,7 +136,8 @@ class App extends Component {
       updateView: this.updateView,
       deleteItem: this.deleteItem,
       updateItem: this.updateItem,
-      completedItem: this.completedItem
+      completedItem: this.completedItem, 
+      errorMessage: ''
     }
  };
 

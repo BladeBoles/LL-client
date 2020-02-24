@@ -32,8 +32,9 @@ export default class Navbar extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const user_login = this.state.user_login;
+    const user_password = this.state.user_password;
     
-    this.context.fetchProfile(user_login)    
+    this.context.fetchProfile(user_login, user_password)    
   }
 
   toggleDropdown = (event) => {
@@ -46,9 +47,7 @@ export default class Navbar extends Component {
     }
   }
 
-  componentDidMount() {
-    this.context.fetchProfile(this.context.user_login)
-  }
+
 
   render() {
     return (
