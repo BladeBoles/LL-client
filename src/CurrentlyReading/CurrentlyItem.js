@@ -42,7 +42,6 @@ export default class CurrentlyItem extends Component {
     
     let updateInfo = this.state;
     this.context.updateItem(this.props.itemInfo.id, updateInfo);
-    console.log(updateInfo);
     this.editCurrentlyItem();
   }  
 
@@ -55,7 +54,7 @@ export default class CurrentlyItem extends Component {
   }
 
   componentDidMount() {
-    this.context.fetchProfile(this.context.user_login);
+    this.context.fetchProfile(this.context.user_login, this.context.user_password);
   }
 
   render() {
