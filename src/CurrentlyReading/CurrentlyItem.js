@@ -42,7 +42,6 @@ export default class CurrentlyItem extends Component {
     
     let updateInfo = this.state;
     this.context.updateItem(this.props.itemInfo.id, updateInfo);
-    console.log(updateInfo);
     this.editCurrentlyItem();
   }  
 

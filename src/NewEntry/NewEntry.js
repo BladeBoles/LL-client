@@ -68,11 +68,12 @@ export default class NewEntry extends Component {
         <form className="item-column" id="record-media" onSubmit={this.handleSubmit}>
           <div className="form-section">
             <label htmlFor="media_title">Title (required)</label>
-            <input type="text" name="media_name" value={this.state.media_name} onChange={this.handleChange} required  />
+            <input id="media_title" type="text" name="media_name" value={this.state.media_name} onChange={this.handleChange} required  />
           </div>
           <div className="form-section">
             <label htmlFor="current-or-finished">I'm finished reading this </label>
             <input
+            id="current-or-finished"
             name="finished"
             type="checkbox"
             checked={this.state.finished}
@@ -80,7 +81,7 @@ export default class NewEntry extends Component {
           </div>
           <div className="form-section">
             <label htmlFor="media-type">Choose Media Type: </label>
-            <select name="media_type" value={this.state.media_type} onChange={this.handleChange}>
+            <select id="media-type" name="media_type" value={this.state.media_type} onChange={this.handleChange}>
               <option value="book">Book</option>
               <option value="article">Article</option>
               <option value="audiobook">Audiobook</option>
@@ -89,28 +90,28 @@ export default class NewEntry extends Component {
           </div>
           <div className="form-section">
             <label htmlFor="reading-progress">Amount of time read so far: </label>
-            <input type="text" name="current_progress" value={this.state.current_progress} onChange={this.handleChange}  /> minutes
+            <input id="reading-progress" type="text" name="current_progress" value={this.state.current_progress} onChange={this.handleChange}  /> minutes
           </div>
           <div className="form-section">
             <label htmlFor="media-author">Author (optional)</label>
-            <input type="text" name="author" value={this.state.author} onChange={this.handleChange} />
+            <input id="media-author" type="text" name="author" value={this.state.author} onChange={this.handleChange} />
           </div>
           <div className="form-section">
             <label htmlFor="media-url">Relevant Link (optional)</label>
-            <input type="url" name="media_url" value={this.state.media_url} onChange={this.handleChange} />
+            <input id="media-url" type="url" name="media_url" value={this.state.media_url} onChange={this.handleChange} />
           </div>
 
           <div className="form-section">
             <label htmlFor="media-notes">Notes (optional)</label>
-            <textarea name="notes" rows="5" cols="40" value={this.state.notes} onChange={this.handleChange}></textarea>
+            <textarea id="media-notes" name="notes" rows="5" cols="36" value={this.state.notes} onChange={this.handleChange}></textarea>
           </div>
           
           <div className="form-section">
-            <label htmlFor="media-dates">Date started: </label>
+            <label htmlFor="start">Date started: </label>
             <input type="date" id="start" name="date_started" value={this.state.date_started ? this.state.date_started.slice(0, 10) : ''} onChange={this.handleChange} required />
           </div>
           <div className="form-section">
-            <label htmlFor="media-dates">Date finished (optional): </label>
+            <label htmlFor="finish">Date finished (optional): </label>
             <input type="date" id="finish" name="date_finished" value={this.state.date_finished ? this.state.date_finished.slice(0, 10) : ''} onChange={this.handleChange} />
           </div>
           <div className="entry-buttons item-row">

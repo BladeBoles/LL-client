@@ -20,7 +20,6 @@ class App extends Component {
     super(props);
 
     this.fetchProfile = (user_login, user_password) => {
-      console.log(this.state.user_password)
       const body_data = {
         user_password: user_password
       }
@@ -108,7 +107,6 @@ class App extends Component {
         },
         body: JSON.stringify(itemUpdates),
       })
-        .then(res => console.log(res))
         .then(res => this.updateView())
         .catch(error => console.error('Error: ', error))
     }
@@ -122,7 +120,6 @@ class App extends Component {
         },
         body: JSON.stringify({"finished": itemProgress}),
       })
-        .then(res => console.log(res))
         .then(res => this.updateView())
         .catch(error => console.error('Error: ', error))
     }
