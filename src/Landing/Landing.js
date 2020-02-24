@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import './Landing.css'
 import UserContext from '../context/UserContext'
 import config from '../config'
+import EditingGoals from '../assets/EditingGoalsScreenshot.png'
+import NewEntry from '../assets/NewEntryScreenshot.png'
+import TwoItems from '../assets/TwoItemsScreenshot.png'
 
 export default class Landing extends Component {
   static contextType = UserContext;
@@ -46,6 +49,7 @@ export default class Landing extends Component {
   }
 
   render() {
+    
     return (
       <main className="landing-main" role="main">
         <header>
@@ -55,17 +59,25 @@ export default class Landing extends Component {
 
         <section className="landing-section">
             <h3>Set Personalized Goals</h3>
-  
-            <p>Lexical Library lets you set and track reading goals based on what really matters - time spent reading.  Stop counting books and pages! Reinforce good habits and manage your precious time wisely with time-based reading goals.  Lexical Library will help you stay on track by telling you how much you need to read each day to finish your goal.</p>
+            <img src={EditingGoals} width="90%" alt="Goals being edited in the app"/>
+            <p>Lexical Library lets you set and track reading goals based on what really matters - time spent reading. Reinforce good habits with time-based reading goals.  Lexical Library will help you stay on track by telling you how much you need to read each day to finish your goal.  </p>
+        </section>
+
+
+        <section className="landing-section">
+            <h3>Watch Your Library Grow</h3>
+            <img src={TwoItems} width="90%" alt="A view of some items in the app"/>
+            <p>Part of the fun of reading books is watching your bookshelf grow as you add more books to it.  Let LL be your virtual bookshelf for all textual media.  Add notes and relevant info for each item to help you keep track of it all.</p>
         </section>
 
         <section className="landing-section">
-            <h3>Everything Counts!</h3>
-            <p>I'm a firm believer that all forms of reading media are good forms.  Lexical Library doesn't care if you read books, textbooks, scientific papers, news articles, audiobooks or the backs of cereal boxes.  Other services restrict the types of media you can track (usually while trying to sell you more of it based on your habits).  Lexical Library gives you the absolute freedom to record and organize anything you read, while never sharing any of your data.  Start cataloging all the things you've read and are reading/want to read and watch your personal library grow!</p>
+            <h3>All Reading is Good Reading</h3>
+            <img src={NewEntry} width="90%" alt="New item being added in the app"/>
+            <p>Love reading comic books? Great! Do you read a scientific paper every day at work?  Add it!  Catalogue every textbook, article, and cereal box you read.  Reading more is the goal, the medium doesn't matter.</p>
         </section>
 
         <section className="landing-section">
-            <h3>Sign up now and start smashing your goals!</h3>
+            <h3>Sign up now and start reading more!</h3>
             <form className="signup-form" onSubmit={this.handleSubmit} >
   
               <label htmlFor="username">Desired Username: </label>

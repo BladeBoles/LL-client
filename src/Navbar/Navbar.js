@@ -82,6 +82,7 @@ export default class Navbar extends Component {
             <button className="login-button">Log In</button>
 
             <div className="errorMessage">{this.context.errorMessage}</div>
+            <div className="dummy">Log in as "guest" (no password) to have a look around!</div>
           </form>)}
         
         </nav>
