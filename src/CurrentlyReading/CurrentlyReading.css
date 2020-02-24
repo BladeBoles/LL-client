@@ -35,6 +35,7 @@ div.outer {
   align-items: center;
   background: #edf8f7; 
   flex-basis: 600px;
+  padding: 20px;
 }
 
 section.goals {
