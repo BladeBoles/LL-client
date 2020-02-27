@@ -59,6 +59,7 @@ export default class Landing extends Component {
 
         <section className="landing-section">
             <h3>Set Personalized Goals</h3>
+            Example:
             <img src={EditingGoals} width="90%" alt="Goals being edited in the app"/>
             <p>Lexical Library lets you set and track reading goals based on what really matters - time spent reading. Reinforce good habits with time-based reading goals.  Lexical Library will help you stay on track by telling you how much you need to read each day to finish your goal.  </p>
         </section>
