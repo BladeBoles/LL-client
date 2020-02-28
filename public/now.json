@@ -3,21 +3,7 @@
   "alias": "lexical-library",
   "name": "lexical-library",
   "routes": [
-    {
-      "src": "^/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": ".*",
-      "dest": "/index.html"
-    },
-    {
-      "src": "^/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "^/favicon.ico", 
-      "dest": "/favicon.ico"
-    }
-  ]
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+]
 }
