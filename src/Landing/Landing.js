@@ -5,6 +5,12 @@ import config from '../config'
 import EditingGoals from '../assets/EditingGoalsScreenshot.png'
 import NewEntry from '../assets/NewEntryScreenshot.png'
 import TwoItems from '../assets/TwoItemsScreenshot.png'
+import EditingTablet from '../assets/GoalsTabletScreenshot.png'
+import FormTablet from '../assets/FormTabletScreenshot.png'
+import TabletItem from '../assets/ItemTabletScreenshot.png'
+import EditingMobile from '../assets/GoalsMobileScreenshot.png'
+import FormMobile from '../assets/FormMobileScreenshot.png'
+import OneItem from '../assets/ItemMobileScreenshot.png'
 
 export default class Landing extends Component {
   static contextType = UserContext;
@@ -58,22 +64,27 @@ export default class Landing extends Component {
         </header>
 
         <section className="landing-section">
-            <h3>Set Personalized Goals</h3>
-            Example:
-            <img src={EditingGoals} width="90%" alt="Goals being edited in the app"/>
+            <h3>Set Personalized Goals:</h3>
+            <img className="hide-mobile hide-tablet" src={EditingGoals} width="90%" alt="Goals being edited in the app"/>
+            <img className="hide-mobile hide-desktop" src={EditingTablet} width="100%" alt="Goals being edited in the app"/>
+            <img className="hide-desktop hide-tablet" src={EditingMobile} width="90%" alt="Goals being edited in the app"/>
             <p>Lexical Library lets you set and track reading goals based on what really matters - time spent reading. Reinforce good habits with time-based reading goals.  Lexical Library will help you stay on track by telling you how much you need to read each day to finish your goal.  </p>
         </section>
 
 
         <section className="landing-section">
-            <h3>Watch Your Library Grow</h3>
-            <img src={TwoItems} width="90%" alt="A view of some items in the app"/>
+            <h3>Watch Your Library Grow:</h3>
+            <img className="hide-mobile hide-tablet" src={TwoItems} width="90%" alt="A view of some items in the app"/>
+            <img className="hide-mobile hide-desktop" src={TabletItem} width="100%" alt="A view of an item in the app"/>
+            <img className="hide-desktop hide-tablet" src={OneItem} width="90%" alt="A view of some items in the app"/>
             <p>Part of the fun of reading books is watching your bookshelf grow as you add more books to it.  Let LL be your virtual bookshelf for all textual media.  Add notes and relevant info for each item to help you keep track of it all.</p>
         </section>
 
         <section className="landing-section">
-            <h3>All Reading is Good Reading</h3>
-            <img src={NewEntry} width="90%" alt="New item being added in the app"/>
+            <h3>All Reading is Good Reading:</h3>
+            <img className="hide-mobile hide-tablet" src={NewEntry} width="90%" alt="New item being added in the app"/>
+            <img className="hide-mobile hide-desktop" src={FormTablet} width="100%" alt="New item being added in the app"/>
+            <img className="hide-desktop hide-tablet" src={FormMobile} width="90%" alt="New item being added in the app"/>
             <p>Love reading comic books? Great! Do you read a scientific paper every day at work?  Add it!  Catalogue every textbook, article, and cereal box you read.  Reading more is the goal, the medium doesn't matter.</p>
         </section>
 

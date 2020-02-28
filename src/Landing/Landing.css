@@ -64,3 +64,25 @@ p {
 button.login-button {
   padding: 10px 25px 10px 25px;
 }
+
+h3 {
+  font-style: italic;
+}
+
+@media (max-width: 599px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+  .hide-tablet {
+    display: none;
+  }
+}
+
+@media(min-width: 1201px) {
+  .hide-desktop {
+    display: none;
+  }
+}
