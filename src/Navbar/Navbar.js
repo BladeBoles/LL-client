@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../context/UserContext'
+import TokenService from '../Services/token-service'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
@@ -33,6 +34,10 @@ export default class Navbar extends Component {
     event.preventDefault();
     const user_login = this.state.user_login;
     const user_password = this.state.user_password;
+
+    TokenService.saveAuthToken(
+      TokenService.makeBasicAuthToken(user_login, user_password)
+      )
     
     this.context.fetchProfile(user_login, user_password)    
   }
@@ -63,6 +68,7 @@ export default class Navbar extends Component {
 
           <Link className="icon" to="/" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
           
+          {/*Replace the ternary conditional with: TokenService.hasAuthToken()*/}
           {(this.context.user_login) ? 
           (<div className="user-message">
               Welcome Back, {this.context.user_login}!
