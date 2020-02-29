@@ -98,12 +98,12 @@ export default class Navbar extends Component {
           (<form className="navbar-form" htmlFor="login-form" onSubmit={this.handleSubmit} >
             <div className="username">
               <label htmlFor="username-box">Username: </label>
-              <input id="username-box" type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} />
+              <input id="username-box" type="text" name="user_login" value={this.state.user_login} onChange={this.handleEvent} required />
             </div>  
 
             <div className="password-box">
               <label htmlFor="user_password">Password: </label>
-              <input id="user_password" type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} />
+              <input id="user_password" type="password" name="user_password" value={this.state.user_password} onChange={this.handleEvent} required />
             </div>
 
             <button className="login-button">Log In</button>

@@ -97,14 +97,14 @@ export default class Landing extends Component {
             <form className="signup-form" onSubmit={this.handleSubmit} >
             
               <label htmlFor="username">Desired Username: </label>
-              <input id="username" type="text" name="user_login" value={this.state.username} onChange={this.handleChange} />
+              <input id="username" type="text" name="user_login" value={this.state.username} onChange={this.handleChange} required />
               
               <label htmlFor="password">Create Password: </label>
-              <input id="password" type="password" name="user_password" value={this.state.password} onChange={this.handleChange} />
+              <input id="password" type="password" name="user_password" value={this.state.password} onChange={this.handleChange} required />
               
               <button id="submit-signup">Sign Up</button>
 
-              <p className="dummy">Log in as "guest" (no password) in the navbar to have a look around!</p>
+              <p className="dummy">Log in as "user" with password "pass" in the navbar to have a look around!</p>
             </form> 
         </section>
 
