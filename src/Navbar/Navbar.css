@@ -65,7 +65,7 @@ button#submit-signup {
   cursor: pointer;
 }
 
-button.login-button  {
+button.login-button, button.logout-button {
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;

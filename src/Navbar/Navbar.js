@@ -39,7 +39,8 @@ export default class Navbar extends Component {
       TokenService.makeBasicAuthToken(user_login, user_password)
       )
     
-    this.context.fetchProfile(user_login, user_password)    
+    this.context.fetchProfile(user_login, user_password);
+    this.props.history.push('/currently-reading')    
   }
 
   toggleDropdown = (event) => {
@@ -50,6 +51,26 @@ export default class Navbar extends Component {
     } else {
       toggled.style.display = "block";
     }
+  }
+
+  logout = () => {
+    TokenService.clearAuthToken();
+    window.location.reload();
+  }
+
+  componentDidMount() {
+    if(TokenService.hasAuthToken()) {
+    const authToken = TokenService.getAuthToken();
+    const [tokenUserName, tokenPassword] = Buffer
+    .from(authToken, 'base64')
+    .toString()
+    .split(':');
+    
+    this.setState({
+      user_login: tokenUserName,
+      user_password: tokenPassword
+    }, this.context.fetchProfile(tokenUserName, tokenPassword))
+  }
   }
 
 
@@ -68,10 +89,10 @@ export default class Navbar extends Component {
 
           <Link className="icon" to="/" onClick={this.toggleDropdown}> <FontAwesomeIcon icon={faBars} /> </Link>
           
-          {/*Replace the ternary conditional with: TokenService.hasAuthToken()*/}
           {(this.context.user_login) ? 
           (<div className="user-message">
-              Welcome Back, {this.context.user_login}!
+              <div>Welcome Back, {this.context.user_login}!</div>
+              <button className="logout-button" onClick={this.logout}>Log Out</button>
           </div>) :
 
           (<form className="navbar-form" htmlFor="login-form" onSubmit={this.handleSubmit} >

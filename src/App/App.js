@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import { Route, Switch } from 'react-router-dom'
 import CurrentlyReading from '../CurrentlyReading/CurrentlyReading';
-///Footer/Footer';
 import Landing from '../Landing/Landing';
 import MyLibrary from '../MyLibrary/MyLibrary';
 import Navbar from '../Navbar/Navbar';
 import NewEntry from '../NewEntry/NewEntry';
 import UserContext from '../context/UserContext';
 import config from '../config'
+import TokenService from '../Services/token-service'
 import '../index.css'
 
 
@@ -27,6 +27,7 @@ class App extends Component {
       fetch(`${config.API_ENDPOINT}/api/login/${user_login}`, {
         method: 'POST',
         headers: {
+          'authorization': `basic ${TokenService.getAuthToken()}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(body_data)
@@ -152,7 +153,7 @@ class App extends Component {
     
     <>
     <UserContext.Provider value={this.state}>
-      <Navbar />
+      <Route path="/" component={Navbar} />
     
       <Switch>
     

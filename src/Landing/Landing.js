@@ -11,6 +11,7 @@ import TabletItem from '../assets/ItemTabletScreenshot.png'
 import EditingMobile from '../assets/GoalsMobileScreenshot.png'
 import FormMobile from '../assets/FormMobileScreenshot.png'
 import OneItem from '../assets/ItemMobileScreenshot.png'
+import TokenService from '../Services/token-service'
 
 export default class Landing extends Component {
   static contextType = UserContext;
@@ -34,7 +35,10 @@ export default class Landing extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-  
+    TokenService.saveAuthToken(
+      TokenService.makeBasicAuthToken(this.state.user_login, this.state.user_password)
+      )
+
     let dataToPost = JSON.stringify(this.state);
     fetch(`${config.API_ENDPOINT}/api/new-user`, {
       method: 'POST',
