@@ -15,7 +15,7 @@ const TokenService = {
   },
   makeBasicAuthToken(user_login, user_password) {
     return window.btoa(`${user_login}:${user_password}`)
-  },
+  }
 }
 
 export default TokenService
